@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <title>2025년 4월 큐레이션</title>
   <style>
-    body { font-family: sans-serif; background: #ffffff; padding: 20px; margin: 0; }
-    h1 { color: #222; text-align: center; }
+    body {
+      font-family: sans-serif;
+      background: #ffffff;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #222;
+      text-align: center;
+    }
 
     .slider-container {
       position: relative;
-      max-width: 600px;  /* ✅ 슬라이더 전체 너비 축소 */
+      max-width: 600px; /* ✅ 슬라이더 너비 조정 */
       margin: auto;
       overflow: hidden;
     }
@@ -21,16 +30,16 @@
     }
 
     .slider a {
-      width: 12.5%;
+      width: 12.5%; /* 100% / 8장 */
       flex-shrink: 0;
       display: block;
     }
 
     .slider img {
       width: 100%;
-      height: auto; /* ✅ 이미지 비율 유지하며 크기 자동 조정 */
+      height: auto;
       border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
       display: block;
     }
 
@@ -40,7 +49,7 @@
       transform: translateY(-50%);
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
-      font-size: 24px; /* 살짝 작게 */
+      font-size: 24px;
       padding: 8px;
       border: none;
       cursor: pointer;
@@ -66,31 +75,40 @@
 <body>
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
   <h1>2025년 4월 큐레이션 카드뉴스</h1>
-  
+
   <div class="slider-container">
     <div class="slider">
-      <!-- 첫 번째 이미지 (링크 없음) -->
+      <!-- 각 이미지에 링크를 정확히 1개씩만 적용 -->
       <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="첫 번째"></a>
 
-      <!-- 두 번째 이미지 (링크 예시) -->
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000702203" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="두 번째">
       </a>
 
-      <!-- 나머지 이미지들도 여기에 링크만 바꿔서 넣으면 됩니다 -->
-   <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696402" target="_blank">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="세 번째"></a>
-   <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000491498?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9B%94%EB%93%A0+%ED%97%A8%EB%A6%AC+%EB%8D%B0%EC%9D%B4%EB%B9%97+%EC%86%8C%EB%A1%9C%EC%9A%B0_A_si=TOTAL" target="_blank">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="네 번째"></a>
-   <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000376677" target="_blank">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="다섯 번째"></a>
-   <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000416984" target="_blank">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="여섯 번째"></a>
-   <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000681108" target="_blank">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="일곱 번째"></a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696402" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="세 번째">
+      </a>
+
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000491498" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="네 번째">
+      </a>
+
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000376677" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="다섯 번째">
+      </a>
+
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000416984" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="여섯 번째">
+      </a>
+
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000681108" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="일곱 번째">
+      </a>
 
       <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="여덟 번째"></a>
     </div>
+
+    <!-- 좌우 버튼 -->
     <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
     <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
   </div>
