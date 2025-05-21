@@ -9,18 +9,20 @@
 
     .slider-container {
       position: relative;
-      max-width: 1000px;
+      max-width: 800px;
       margin: auto;
-      overflow: hidden; /* 한 번에 하나만 보이도록 설정 */
+      overflow: hidden;
     }
 
     .slider {
       display: flex;
+      width: 800%; /* 이미지 8장 => 100% * 8 */
       transition: transform 0.5s ease-in-out;
     }
 
     .slider img {
-      width: 100%;
+      width: 12.5%; /* 100% / 8장 = 12.5% */
+      flex-shrink: 0;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
@@ -53,7 +55,6 @@
       text-decoration: none;
       color: #0056b3;
     }
-
   </style>
 </head>
 <body>
@@ -62,30 +63,27 @@
   
   <div class="slider-container">
     <div class="slider">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="2025년 4월 카드뉴스 첫 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="2025년 4월 카드뉴스 두 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="2025년 4월 카드뉴스 세 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="2025년 4월 카드뉴스 네 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="2025년 4월 카드뉴스 다섯 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="2025년 4월 카드뉴스 여섯 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="2025년 4월 카드뉴스 일곱 번째">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="2025년 4월 카드뉴스 여덟 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="첫 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="두 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="세 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="네 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="다섯 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="여섯 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="일곱 번째">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="여덟 번째">
     </div>
-    <!-- 슬라이드 전환 버튼들 -->
     <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
     <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
   </div>
 
   <script>
     let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('.slider img').length;
 
-    // 슬라이드 이동 함수
     function moveSlide(step) {
       const slides = document.querySelector('.slider');
-      const totalSlides = document.querySelectorAll('.slider img').length;
-
       currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      slides.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
     }
   </script>
 </body>
