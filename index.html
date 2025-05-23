@@ -11,11 +11,13 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      gap: 30px;
+      font-family: 'Noto Sans KR', sans-serif;
     }
     .star-card {
-      width: 200px;
-      height: 200px;
-      background-color: #4a90e2;
+      width: 280px;
+      height: 280px;
+      background-color: #0052cc; /* 진한 파란색 */
       clip-path: polygon(
         50% 0%,
         61% 35%,
@@ -32,18 +34,22 @@
       justify-content: center;
       align-items: center;
       color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 2rem;
+      font-weight: 700;
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
     .star-card:hover {
-      background-color: #357ABD;
+      background-color: #003d99;
     }
   </style>
 </head>
 <body>
-  <div class="star-card">카드뉴스</div>
+  <a href="cardnews.html" class="star-card">카드뉴스</a>
+  <a href="책서림.html" class="star-card">책서림</a>
+  <a href="테마전시.html" class="star-card">테마전시</a>
 </body>
 </html>
