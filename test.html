@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>별 모양 카드 테스트</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #222;
+      text-align: center;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 30px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      width: 240px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
+
+    .star-card {
+      width: 200px;
+      height: 200px;
+      background-color: #000000;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .star-card:hover {
+      background-color: #222222;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://via.placeholder.com/240x60?text=Friends+Logo" alt="Friends Logo" class="logo" />
+  </header>
+
+  <div class="container">
+    <a href="#" class="star-card">카드뉴스</a>
+    <a href="#" class="star-card">책서림</a>
+    <a href="#" class="star-card">테마전시</a>
+  </div>
+</body>
+</html>
