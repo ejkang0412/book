@@ -2,42 +2,20 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>도서관 Friends 활동 아카이빙</title>
+  <title>별 모양 카드 테스트</title>
   <style>
     body {
       margin: 0;
-      background-color: #f5f5f5;
-      font-family: 'Noto Sans KR', sans-serif;
-      color: #222;
-      text-align: center;
-    }
-
-    header {
-      background-color: #fff;
-      padding: 30px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .logo {
-      width: 240px;
-    }
-
-    .container {
+      background: #f5f5f5;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      padding: 40px 20px;
+      align-items: center;
+      height: 100vh;
     }
-
-    .card {
-      background-color: #4a90e2; /* 원하는 배경색으로 변경 가능 */
-      width: 260px;
-      height: 260px; /* 정사각형으로 맞춤 */
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.2s ease;
-      cursor: pointer;
+    .star-card {
+      width: 200px;
+      height: 200px;
+      background-color: #4a90e2;
       clip-path: polygon(
         50% 0%,
         61% 35%,
@@ -51,31 +29,21 @@
         39% 35%
       );
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       color: white;
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: bold;
+      cursor: pointer;
       user-select: none;
-      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-      background-color: #357ABD; /* 호버 시 색 변화 */
+    .star-card:hover {
+      background-color: #357ABD;
     }
-
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Friends Logo" class="logo" />
-  </header>
-
-  <div class="container">
-    <a href="cardnews.html" class="card">카드뉴스</a>
-    <a href="책서림.html" class="card">책서림</a>
-    <a href="테마전시.html" class="card">테마전시</a>
-  </div>
+  <div class="star-card">카드뉴스</div>
 </body>
 </html>
