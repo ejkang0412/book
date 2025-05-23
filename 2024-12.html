@@ -6,9 +6,9 @@
   <style>
     body {
       font-family: sans-serif;
-      background: #ffffff;
-      padding: 20px;
+      background-color: #ffffff;
       margin: 0;
+      padding: 20px;
     }
 
     h1 {
@@ -24,97 +24,64 @@
       color: #0056b3;
     }
 
-    .slider-container {
-      position: relative;
-      max-width: 600px;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .slider {
+    .gallery {
       display: flex;
-      width: 700%; /* 7장 기준 */
-      transition: transform 0.5s ease-in-out;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
-
-    .slider a {
-      width: 14.2857%;
-      flex-shrink: 0;
-      display: block;
+    .gallery-item {
+      flex: 0 1 300px;
     }
 
-    .slider img {
+    .gallery-item img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
       display: block;
     }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 24px;
-      padding: 8px;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
-    }
   </style>
 </head>
 <body>
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
-  <h1>2025년 5월 큐레이션 카드뉴스</h1>
+  <h1>2024년 12월 큐레이션 카드뉴스</h1>
 
-  <div class="slider">
-  <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="첫 번째"></a>
-  
-  <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank">
-    <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="두 번째">
-  </a>
-  <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank">
-    <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(4).png" alt="세 번째">
-  </a>
-  <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689737" target="_blank">
-    <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(5).png" alt="네 번째">
-  </a>
-  <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000672405" target="_blank">
-    <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(4).png" alt="다섯 번째">
-  </a>
-  <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000597116" target="_blank">
-    <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/6(4).png" alt="여섯 번째">
-  </a>
-  <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7(3).png" alt="일곱 번째"></a>
-</div>
-
-
-    <!-- 좌우 버튼 -->
-    <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="첫 번째 이미지">
+    </div>
+    <div class="gallery-item">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="두 번째 이미지">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="세 번째 이미지">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="네 번째 이미지">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="다섯 번째 이미지">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="여섯 번째 이미지">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="일곱 번째 이미지">
+      </a>
+    </div>
   </div>
-
-  <script>
-    let currentSlide = 0;
-    const slider = document.querySelector('.slider');
-    const totalSlides = slider.querySelectorAll('a').length;
-
-    function moveSlide(step) {
-      currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-      const slideWidth = 100 / totalSlides;
-      slider.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
-    }
-  </script>
 </body>
 </html>
