@@ -33,12 +33,12 @@
 
     .slider {
       display: flex;
-      width: 700%; /* 7장의 이미지 */
+      width: 700%;
       transition: transform 0.5s ease-in-out;
     }
 
     .slider a {
-      width: 14.2857%; /* 100 / 7 */
+      width: 14.2857%;
       flex-shrink: 0;
       display: block;
     }
@@ -78,29 +78,23 @@
   <h1>2025년 5월 큐레이션 카드뉴스</h1>
 
   <div class="slider-container">
-    <div class="slider" id="slider">
+    <div class="slider">
       <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="첫 번째"></a>
-
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="두 번째">
       </a>
-
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="세 번째">
       </a>
-
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="네 번째">
       </a>
-
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="다섯 번째">
       </a>
-
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="여섯 번째">
       </a>
-
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="일곱 번째">
       </a>
@@ -113,8 +107,8 @@
 
   <script>
     let currentSlide = 0;
-    const slider = document.getElementById('slider');
-    const totalSlides = document.querySelectorAll('.slider a').length;
+    const slider = document.querySelector('.slider');
+    const totalSlides = slider.querySelectorAll('a').length;
 
     function moveSlide(step) {
       currentSlide = (currentSlide + step + totalSlides) % totalSlides;
