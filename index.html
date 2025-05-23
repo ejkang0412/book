@@ -2,22 +2,38 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>별 모양 카드 테스트</title>
+  <title>도서관 Friends 활동 아카이빙</title>
   <style>
     body {
       margin: 0;
-      background: #f5f5f5;
+      background-color: #f5f5f5;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #222;
+      text-align: center;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 30px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      width: 240px;
+    }
+
+    .container {
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      gap: 30px;
-      font-family: 'Noto Sans KR', sans-serif;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
     }
+
     .star-card {
-      width: 280px;
-      height: 280px;
-      background-color: #0052cc; /* 진한 파란색 */
+      width: 200px;
+      height: 200px;
+      background-color: #000000; /* 검정 배경 */
       clip-path: polygon(
         50% 0%,
         61% 35%,
@@ -33,23 +49,30 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
-      font-size: 2rem;
+      color: #ffffff; /* 흰색 글씨 */
+      font-size: 1.6rem;
       font-weight: 700;
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s ease;
       text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
+
     .star-card:hover {
-      background-color: #003d99;
+      background-color: #222222; /* 호버 시 짙은 회색 */
     }
   </style>
 </head>
 <body>
-  <a href="cardnews.html" class="star-card">카드뉴스</a>
-  <a href="책서림.html" class="star-card">책서림</a>
-  <a href="테마전시.html" class="star-card">테마전시</a>
+  <header>
+    <img src="logo.png" alt="Friends Logo" class="logo" />
+  </header>
+
+  <div class="container">
+    <a href="cardnews.html" class="star-card">카드뉴스</a>
+    <a href="책서림.html" class="star-card">책서림</a>
+    <a href="테마전시.html" class="star-card">테마전시</a>
+  </div>
 </body>
 </html>
