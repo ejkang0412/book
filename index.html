@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>별 모양 카드 테스트</title>
+  <title>도서관 Friends 활동 아카이빙</title>
   <style>
     body {
       margin: 0;
@@ -36,7 +36,7 @@
     .star-card {
       width: 200px;
       height: 200px;
-      background-color: #000000;
+      background-color: #000000; /* 검정 배경 */
       clip-path: polygon(
         50% 0%,
         61% 35%,
@@ -52,7 +52,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #ffffff;
+      color: #ffffff; /* 흰색 글씨 */
       font-size: 1.6rem;
       font-weight: 700;
       cursor: pointer;
@@ -63,19 +63,19 @@
     }
 
     .star-card:hover {
-      background-color: #222222;
+      background-color: #222222; /* 호버 시 짙은 회색 */
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://via.placeholder.com/240x60?text=Friends+Logo" alt="Friends Logo" class="logo" />
+    <img src="logo.png" alt="Friends Logo" class="logo" />
   </header>
 
   <div class="container">
-    <a href="#" class="star-card">카드뉴스</a>
-    <a href="#" class="star-card">책서림</a>
-    <a href="#" class="star-card">테마전시</a>
+    <a href="cardnews.html" class="star-card">카드뉴스</a>
+    <a href="책서림.html" class="star-card">책서림</a>
+    <a href="테마전시.html" class="star-card">테마전시</a>
   </div>
 </body>
 </html>
