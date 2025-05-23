@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>도서관 Friends 활동 아카이빙</title>
   <style>
     body {
@@ -31,54 +31,51 @@
     }
 
     .card {
-      background-color: #fff;
-      border-radius: 20px;
+      background-color: #4a90e2; /* 원하는 배경색으로 변경 가능 */
       width: 260px;
+      height: 260px; /* 정사각형으로 맞춤 */
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: transform 0.2s ease;
       cursor: pointer;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      user-select: none;
+      text-decoration: none;
     }
 
     .card:hover {
       transform: translateY(-5px);
+      background-color: #357ABD; /* 호버 시 색 변화 */
     }
 
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .card h3 {
-      margin: 20px 0;
-      color: #444;
-      font-size: 1.2rem;
-    }
-
-    a {
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Friends Logo" class="logo">
+    <img src="logo.png" alt="Friends Logo" class="logo" />
   </header>
 
   <div class="container">
-    <a href="cardnews.html" class="card">
-      <img src="카드뉴스_대표사진.jpg" alt="카드뉴스">
-      <h3>카드뉴스</h3>
-    </a>
-    <a href="책서림.html" class="card">
-      <img src="책서림_대표사진.jpg" alt="책서림">
-      <h3>책서림</h3>
-    </a>
-    <a href="테마전시.html" class="card">
-      <img src="테마전시_대표사진.jpg" alt="테마전시">
-      <h3>테마전시</h3>
-    </a>
+    <a href="cardnews.html" class="card">카드뉴스</a>
+    <a href="책서림.html" class="card">책서림</a>
+    <a href="테마전시.html" class="card">테마전시</a>
   </div>
 </body>
 </html>
