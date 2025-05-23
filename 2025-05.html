@@ -14,54 +14,7 @@
     h1 {
       color: #222;
       text-align: center;
-    }
-
-    .slider-container {
-      position: relative;
-      max-width: 600px;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .slider {
-      display: flex;
-      width: 700%; /* ✅ 이미지 7장 */
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slider a {
-      width: 14.2857%; /* ✅ 100% / 7 */
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .slider img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-      display: block;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 24px;
-      padding: 8px;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
+      margin-bottom: 30px;
     }
 
     a.back {
@@ -70,41 +23,69 @@
       text-decoration: none;
       color: #0056b3;
     }
+
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .scroll-container a {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+
+    .scroll-container img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    /* 스크롤바 없애기 (선택사항) */
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
 <body>
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
   <h1>2025년 5월 큐레이션 카드뉴스</h1>
 
-  <div class="slider-container">
-    <div class="slider">
-      <!-- 각 이미지에 링크 적용 -->
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="첫 번째"></a>
+  <div class="scroll-container">
+    <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="첫 번째"></a>
 
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="두 번째">
-      </a>
+    <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="두 번째">
+    </a>
 
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="세 번째">
-      </a>
+    <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="세 번째">
+    </a>
 
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="네 번째">
-      </a>
+    <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="네 번째">
+    </a>
 
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="다섯 번째">
-      </a>
+    <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="다섯 번째">
+    </a>
 
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="여섯 번째">
-      </a>
+    <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="여섯 번째">
+    </a>
 
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="일곱 번째">
-      </a>
-    </div>
-
-    <!-- 좌우 슬라이드 버튼 -->
-    <button class="arrow arrow-left" onclick="moveSlide
+    <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="일곱 번째">
+    </a>
+  </div>
+</body>
+</html>
