@@ -6,20 +6,19 @@
   <style>
     body {
       margin: 0;
-      background-color: #000000; /* 검정 배경 */
+      background-color: #000; /* 전체 배경 검정 */
       font-family: 'Noto Sans KR', sans-serif;
-      color: #ffffff; /* 흰색 글씨 */
+      color: #fff; /* 기본 글씨 흰색 */
       text-align: center;
     }
 
     header {
-      background-color: #fff;
+      background-color: #000;
       padding: 30px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .logo {
-      width: 240px;
+      width: 200px;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -34,9 +33,9 @@
     }
 
     .star-card {
-      width: 160px;
-      height: 160px;
-      background-color: #000000; /* 검정 배경 */
+      width: 140px;
+      height: 140px;
+      background-color: #000;
       clip-path: polygon(
         50% 0%,
         61% 35%,
@@ -52,24 +51,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #ffffff; /* 흰색 글씨 */
-      font-size: 1.4rem;
-      font-weight: 700;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
     }
 
     .star-card:hover {
-      background-color: #222222; /* 호버 시 짙은 회색 */
+      background-color: #333;
     }
   </style>
 </head>
 <body>
   <header>
-   <img src="logo.png" alt="Friends Logo" class="logo" />
+    <img src="logo.png" alt="Friends Logo" class="logo" />
   </header>
 
   <div class="container">
