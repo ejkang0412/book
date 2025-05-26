@@ -36,7 +36,6 @@
     .slider {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      width: 100%;
     }
 
     .slide {
@@ -48,6 +47,7 @@
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 8px;
     }
 
     .arrow {
@@ -60,7 +60,7 @@
       padding: 10px;
       border: none;
       cursor: pointer;
-      z-index: 1;
+      z-index: 10;
     }
 
     .arrow-left {
@@ -97,11 +97,59 @@
 
   <div class="slider-container">
     <div class="slider" id="slider">
-      <div class="slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="첫 번째 이미지"></a></div>
-      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="두 번째 이미지"></a></div>
-      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="세 번째 이미지"></a></div>
-      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="네 번째 이미지"></a></div>
-      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="다섯 번째 이미지"></a></div>
-      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="여섯 번째 이미지"></a></div>
-      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="일곱 번째 이미지"></a></div>
-    </
+      <div class="slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="1번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="2번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="3번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="4번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="5번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="6번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="7번째 이미지"></a></div>
+    </div>
+
+    <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
+
+    <div class="dots" id="dots-container"></div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots-container');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateDots();
+    }
+
+    function moveSlide(step) {
+      currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+      updateSlide();
+    }
+
+    function createDots() {
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+          currentSlide = i;
+          updateSlide();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    createDots();
+    updateSlide();
+  </script>
+</body>
+</html>
