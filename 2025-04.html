@@ -1,67 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>2025년 4월 큐레이션</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
   <style>
     body {
       font-family: sans-serif;
-      background: #ffffff;
-      padding: 20px;
+      background-color: #fff;
       margin: 0;
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
       color: #222;
-      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .slider-container {
-      position: relative;
-      max-width: 600px; /* ✅ 슬라이더 너비 조정 */
+    .swiper {
+      width: 90%;
+      max-width: 600px;
       margin: auto;
-      overflow: hidden;
     }
 
-    .slider {
+    .swiper-slide {
       display: flex;
-      width: 800%; /* 이미지 8장 */
-      transition: transform 0.5s ease-in-out;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
     }
 
-    .slider a {
-      width: 12.5%; /* 100% / 8장 */
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .slider img {
+    .swiper-slide img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-      display: block;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 24px;
-      padding: 8px;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #000;
     }
 
     a.back {
@@ -76,52 +58,67 @@
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
   <h1>2025년 4월 큐레이션 카드뉴스</h1>
 
-  <div class="slider-container">
-    <div class="slider">
-      <!-- 각 이미지에 링크를 정확히 1개씩만 적용 -->
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="첫 번째"></a>
-
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000702203" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="두 번째">
-      </a>
-
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696402" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="세 번째">
-      </a>
-
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000491498" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="네 번째">
-      </a>
-
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000376677" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="다섯 번째">
-      </a>
-
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000416984" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="여섯 번째">
-      </a>
-
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000681108" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="일곱 번째">
-      </a>
-
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="여덟 번째"></a>
+  <!-- Swiper 시작 -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="1페이지" /></a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000702203" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="2페이지" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696402" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="3페이지" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000491498" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="4페이지" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000376677" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="5페이지" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000416984" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="6페이지" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000681108" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="7페이지" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="8페이지" /></a>
+      </div>
     </div>
 
-    <!-- 좌우 버튼 -->
-    <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
+    <!-- 네비게이션 및 페이지네이션 -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
   </div>
 
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    let currentSlide = 0;
-    const totalSlides = document.querySelectorAll('.slider a').length;
-
-    function moveSlide(step) {
-      const slides = document.querySelector('.slider');
-      currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
-    }
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
   </script>
 </body>
 </html>
