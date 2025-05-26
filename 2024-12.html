@@ -26,28 +26,27 @@
 
     .slider-container {
       position: relative;
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
       overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .slider {
       display: flex;
-      width: 700%; /* 이미지 7장 */
       transition: transform 0.5s ease-in-out;
+      width: 100%;
     }
 
-    .slider a {
-      width: 14.2857%; /* 100% / 7장 */
-      flex-shrink: 0;
-      display: block;
+    .slide {
+      flex: 0 0 100%;
+      max-width: 100%;
     }
 
-    .slider img {
+    .slide img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
       display: block;
     }
 
@@ -58,10 +57,10 @@
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
       font-size: 24px;
-      padding: 8px;
+      padding: 10px;
       border: none;
       cursor: pointer;
-      z-index: 10;
+      z-index: 1;
     }
 
     .arrow-left {
@@ -97,72 +96,12 @@
   <h1>2024년 12월 큐레이션 카드뉴스</h1>
 
   <div class="slider-container">
-    <div class="slider">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="첫 번째 이미지"></a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="두 번째 이미지">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(4).png" alt="세 번째 이미지">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689737" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(5).png" alt="네 번째 이미지">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000672405" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(4).png" alt="다섯 번째 이미지">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000597116" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/6(4).png" alt="여섯 번째 이미지">
-      </a>
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7(3).png" alt="일곱 번째 이미지">
-      </a>
-    </div>
-
-    <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
-
-    <div class="dots" id="dots-container"></div>
-  </div>
-
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slider a');
-    const slider = document.querySelector('.slider');
-    const dotsContainer = document.getElementById('dots-container');
-    const totalSlides = slides.length;
-
-    function updateSlide() {
-      slider.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
-      updateDots();
-    }
-
-    function moveSlide(step) {
-      currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-      updateSlide();
-    }
-
-    function createDots() {
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => {
-          currentSlide = i;
-          updateSlide();
-        });
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = document.querySelectorAll('.dot');
-      dots.forEach(dot => dot.classList.remove('active'));
-      if (dots[currentSlide]) {
-        dots[currentSlide].classList.add('active');
-      }
-    }
-
-    createDots();
-    updateSlide();
-  </script>
-</body>
-</html>
+    <div class="slider" id="slider">
+      <div class="slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="첫 번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="두 번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="세 번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000677094" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/004(13).png" alt="네 번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000695846" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/005(11).png" alt="다섯 번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000654335" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/006(10).png" alt="여섯 번째 이미지"></a></div>
+      <div class="slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000415507" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/007(9).png" alt="일곱 번째 이미지"></a></div>
+    </
