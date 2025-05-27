@@ -11,6 +11,7 @@
       margin: 0;
       padding: 20px;
     }
+
     a.back {
       display: block;
       margin-bottom: 20px;
@@ -18,36 +19,45 @@
       text-decoration: none;
       font-size: 16px;
     }
+
     h1 {
       text-align: center;
       color: #222;
       margin-bottom: 30px;
     }
+
     .swiper {
       width: 90%;
       max-width: 700px;
       margin: auto;
     }
+
     .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #fff;
+      height: 500px;
     }
+
     .swiper-slide img {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .swiper-button-next,
     .swiper-button-prev {
       color: #333;
     }
+
     .swiper-pagination-bullet {
       background: #bbb;
       opacity: 1;
     }
+
     .swiper-pagination-bullet-active {
       background: #0077cc;
     }
@@ -57,67 +67,24 @@
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
   <h1>2025년 4월 큐레이션 카드뉴스</h1>
 
-  <!-- Swiper 시작 -->
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="1페이지" /></a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000702203" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="2페이지" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696402" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="3페이지" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000491498" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="4페이지" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000376677" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="5페이지" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000416984" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="6페이지" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000681108" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="7페이지" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="8페이지" /></a>
-      </div>
+      <div class="swiper-slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="1페이지"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000702203" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2-2.png" alt="2페이지"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696402" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3-3.png" alt="3페이지"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000491498" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4-4.png" alt="4페이지"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000376677" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5-5.png" alt="5페이지"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000416984" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7-7.png" alt="6페이지"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000681108" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/8-8.png" alt="7페이지"></a></div>
+      <div class="swiper-slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/9-9.png" alt="8페이지"></a></div>
     </div>
-
-    <!-- 네비게이션 및 페이지네이션 -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
   </div>
 
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper('.swiper', {
       loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
-</body>
-</html>
+      navigation: { nextEl: '.swip
