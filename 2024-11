@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>월별 큐레이션 카드뉴스</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+    a.back {
+      display: block;
+      margin-bottom: 20px;
+      color: #0077cc;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 30px;
+    }
+    .slider-container {
+      position: relative;
+      width: 90%;
+      max-width: 700px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+    .slider a {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+    .slider img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: block;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: white;
+      font-size: 28px;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      z-index: 10;
+      transition: background-color 0.3s;
+    }
+    .arrow:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+    .arrow-left {
+      left: 15px;
+    }
+    .arrow-right {
+      right: 15px;
+    }
+    .dots {
+      text-align: center;
+      margin-top: 15px;
+      user-select: none;
+    }
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .dot.active {
+      background-color: #0077cc;
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← 메인으로 돌아가기</a>
+  <h1 id="title">월별 큐레이션 카드뉴스</h1>
+
+  <div class="slider-container">
+    <div class="slider" id="slider"></div>
+
+    <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
+
+    <div class="dots" id="dots-container"></div>
+  </div>
+
+  <script>
+    // 여기 이미지 URL과 링크 배열만 수정하세요
+    const images = [
+      "https://example.com/image1.png",
+      "https://example.com/image2.png",
+      "https://example.com/image3.png",
+    ];
+    const links = [
+      "#",
+      "https://some.link/page2",
+      "https://some.link/page3",
+    ];
+    const monthTitle = "2024년 XX월 큐레이션 카드뉴스";  // 여기 제목만 바꾸세요
+
+    // 제목 설정
+    document.getElementById('title').textContent = monthTitle;
+
+    const slider = document.getElementById('slider');
+    const dotsContainer = document.getElementById('dots-container');
+    let currentSlide = 0;
+
+    function createSlides() {
+      images.forEach((src, i) => {
+        const a = document.createElement('a');
+        a.href = links[i] || '#';
+        a.target = "_blank";
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `slide-${i+1}`;
+        a.appendChild(img);
+        slider.appendChild(a);
+      });
+    }
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateDots();
+    }
+
+    function moveSlide(step) {
+      currentSlide = (currentSlide + step + images.length) % images.length;
+      updateSlide();
+    }
+
+    function createDots() {
+      images.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+          currentSlide = i;
+          updateSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    createSlides();
+    createDots();
+    updateSlide();
+  </script>
+</body>
+</html>
