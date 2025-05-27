@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <meta charset="UTF-8">
+  <title>2025년 5월 카드뉴스</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
   <meta charset="UTF-8" />
   <title>2025년 5월 큐레이션 카드뉴스</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
     body {
+      font-family: sans-serif;
+      background-color: #fff;
       font-family: 'Segoe UI', sans-serif;
       background-color: #ffffff;
       margin: 0;
       padding: 20px;
+      text-align: center;
     }
 
     a.back {
@@ -19,15 +28,17 @@
       text-decoration: none;
       font-size: 16px;
     }
-
     h1 {
       text-align: center;
       color: #222;
+      margin-bottom: 20px;
       margin-bottom: 30px;
     }
 
     .swiper {
       width: 90%;
+      max-width: 600px; /* 슬라이드 크기 키움 */
+      height: auto;
       max-width: 700px;
       margin: auto;
     }
@@ -36,40 +47,34 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background: #fff;
       background-color: #fff;
-      height: 500px;
     }
 
     .swiper-slide img {
-      max-width: 100%;
+      width: 100%;
+      height: auto;
       max-height: 100%;
-      object-fit: contain;
       border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
+    a.back {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #0056b3;
     .swiper-button-next,
     .swiper-button-prev {
       color: #333;
     }
-
     .swiper-pagination-bullet {
       background: #bbb;
       opacity: 1;
     }
-
     .swiper-pagination-bullet-active {
       background: #0077cc;
     }
   </style>
 </head>
-<body>
-  <a class="back" href="index.html">← 메인으로 돌아가기</a>
-  <h1>2025년 5월 큐레이션 카드뉴스</h1>
-
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="1페이지"></div>
-      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000688114" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/002(14).png" alt="2페이지"></a></div>
-      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000680076" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/003(3).jpg" alt="3페이지"></a></div>
-      <div class="s
