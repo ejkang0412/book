@@ -11,6 +11,7 @@
       margin: 0;
       padding: 20px;
     }
+
     a.back {
       display: block;
       margin-bottom: 20px;
@@ -18,36 +19,45 @@
       text-decoration: none;
       font-size: 16px;
     }
+
     h1 {
       text-align: center;
       color: #222;
       margin-bottom: 30px;
     }
+
     .swiper {
       width: 90%;
       max-width: 700px;
       margin: auto;
     }
+
     .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #fff;
+      height: 500px;
     }
+
     .swiper-slide img {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .swiper-button-next,
     .swiper-button-prev {
       color: #333;
     }
+
     .swiper-pagination-bullet {
       background: #bbb;
       opacity: 1;
     }
+
     .swiper-pagination-bullet-active {
       background: #0077cc;
     }
@@ -59,37 +69,13 @@
 
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="1" /></a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="2" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(4).png" alt="3" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689737" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(5).png" alt="4" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000672405" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(4).png" alt="5" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000597116" target="_blank">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/6(4).png" alt="6" />
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7(3).png" alt="7" /></a>
-      </div>
+      <div class="swiper-slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="1"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="2"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(4).png" alt="3"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689737" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(5).png" alt="4"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000672405" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(4).png" alt="5"></a></div>
+      <div class="swiper-slide"><a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000597116" target="_blank"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/6(4).png" alt="6"></a></div>
+      <div class="swiper-slide"><a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7(3).png" alt="7"></a></div>
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
@@ -100,14 +86,8 @@
   <script>
     const swiper = new Swiper('.swiper', {
       loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      pagination: { el: '.swiper-pagination', clickable: true },
     });
   </script>
 </body>
