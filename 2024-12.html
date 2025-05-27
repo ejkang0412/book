@@ -94,6 +94,64 @@
     .dot.active {
       background-color: #0077cc;
     }
+
+    /* 방명록 스타일 추가 */
+    .guestbook {
+      max-width: 700px;
+      margin: 40px auto 60px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .guestbook h2 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    #guestbook-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #guestbook-form input,
+    #guestbook-form textarea {
+      font-size: 16px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: none;
+    }
+    #guestbook-form button {
+      align-self: flex-end;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #guestbook-form button:hover {
+      background-color: #005fa3;
+    }
+    #guestbook-entries {
+      margin-top: 20px;
+    }
+    .entry {
+      background-color: white;
+      border-left: 4px solid #0077cc;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .entry strong {
+      display: block;
+      color: #333;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -125,6 +183,17 @@
     <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
 
     <div class="dots" id="dots-container"></div>
+  </div>
+
+  <!-- 기대작성폼(방명록) -->
+  <div class="guestbook">
+    <h2>📚 기대평을 남겨보세요!</h2>
+    <form id="guestbook-form" onsubmit="return addEntry(event)">
+      <input type="text" id="name" placeholder="이름" required />
+      <textarea id="message" placeholder="기대평을 입력하세요..." required></textarea>
+      <button type="submit">등록</button>
+    </form>
+    <div id="guestbook-entries"></div>
   </div>
 
   <script>
@@ -165,6 +234,23 @@
 
     createDots();
     updateSlide();
+
+    // 기대작성폼 (방명록) 기능
+    function addEntry(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !message) return false;
+
+      const entries = document.getElementById('guestbook-entries');
+      const entry = document.createElement('div');
+      entry.className = 'entry';
+      entry.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+      entries.prepend(entry);
+
+      event.target.reset();
+      return false;
+    }
   </script>
 </body>
 </html>
