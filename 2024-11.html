@@ -98,10 +98,29 @@
 </head>
 <body>
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
-  <h1 id="title">2024년 11월 큐레이션 카드뉴스</h1>
+  <h1>2024년 11월 큐레이션 카드뉴스</h1>
 
   <div class="slider-container">
-    <div class="slider" id="slider"></div>
+    <div class="slider" id="slider">
+      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(5).png" alt="1"></a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000705014" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(5).png" alt="2">
+      </a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000633116?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%95%84%EB%AA%AC%EB%93%9C_A_si=TOTAL" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(3).png" alt="3">
+      </a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000685429" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(4).png" alt="4">
+      </a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000517965?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EB%82%98%EB%AF%B8%EC%95%BC+%EC%9E%A1%ED%99%94%EC%A0%90%EC%9D%98_A_si=TOTAL" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(3).png" alt="5">
+      </a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000696219?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%95%88%EC%A7%84_A_si=TOTAL" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(3).png" alt="6">
+      </a>
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689755" target="_blank">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/page7_1.png" alt="7"></a>
+    </div>
 
     <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
     <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
@@ -110,38 +129,11 @@
   </div>
 
   <script>
-    // 여기 이미지 URL과 링크 배열만 수정하세요
-    const images = [
-      "https://example.com/image1.png",
-      "https://example.com/image2.png",
-      "https://example.com/image3.png",
-    ];
-    const links = [
-      "#",
-      "https://some.link/page2",
-      "https://some.link/page3",
-    ];
-    const monthTitle = "2024년 XX월 큐레이션 카드뉴스";  // 여기 제목만 바꾸세요
-
-    // 제목 설정
-    document.getElementById('title').textContent = monthTitle;
-
-    const slider = document.getElementById('slider');
-    const dotsContainer = document.getElementById('dots-container');
     let currentSlide = 0;
-
-    function createSlides() {
-      images.forEach((src, i) => {
-        const a = document.createElement('a');
-        a.href = links[i] || '#';
-        a.target = "_blank";
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `slide-${i+1}`;
-        a.appendChild(img);
-        slider.appendChild(a);
-      });
-    }
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('#slider a');
+    const totalSlides = slides.length;
+    const dotsContainer = document.getElementById('dots-container');
 
     function updateSlide() {
       slider.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -149,12 +141,12 @@
     }
 
     function moveSlide(step) {
-      currentSlide = (currentSlide + step + images.length) % images.length;
+      currentSlide = (currentSlide + step + totalSlides) % totalSlides;
       updateSlide();
     }
 
     function createDots() {
-      images.forEach((_, i) => {
+      for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('span');
         dot.classList.add('dot');
         dot.addEventListener('click', () => {
@@ -162,7 +154,7 @@
           updateSlide();
         });
         dotsContainer.appendChild(dot);
-      });
+      }
     }
 
     function updateDots() {
@@ -172,7 +164,6 @@
       });
     }
 
-    createSlides();
     createDots();
     updateSlide();
   </script>
