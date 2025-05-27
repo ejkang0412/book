@@ -2,92 +2,54 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>2024년 12월 큐레이션</title>
+  <title>2024년 12월 큐레이션 카드뉴스</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #ffffff;
       margin: 0;
       padding: 20px;
     }
-
+    a.back {
+      display: block;
+      margin-bottom: 20px;
+      color: #0077cc;
+      text-decoration: none;
+      font-size: 16px;
+    }
     h1 {
-      color: #222;
       text-align: center;
+      color: #222;
       margin-bottom: 30px;
     }
-
-    a.back {
-      display: inline-block;
-      margin-bottom: 20px;
-      text-decoration: none;
-      color: #0056b3;
-    }
-
-    .slider-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
+    .swiper {
+      width: 90%;
+      max-width: 700px;
       margin: auto;
-      overflow: hidden;
-      border-radius: 10px;
     }
-
-    .slider {
+    .swiper-slide {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
     }
-
-    .slider a {
-      min-width: 100%;
-      box-sizing: border-box;
-    }
-
-    .slider img {
+    .swiper-slide img {
       width: 100%;
       height: auto;
-      display: block;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 24px;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-      border-radius: 50%;
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #333;
     }
-
-    .arrow-left {
-      left: 10px;
+    .swiper-pagination-bullet {
+      background: #bbb;
+      opacity: 1;
     }
-
-    .arrow-right {
-      right: 10px;
-    }
-
-    .dots {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 5px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .dot.active {
-      background-color: #555;
+    .swiper-pagination-bullet-active {
+      background: #0077cc;
     }
   </style>
 </head>
@@ -95,72 +57,58 @@
   <a class="back" href="index.html">← 메인으로 돌아가기</a>
   <h1>2024년 12월 큐레이션 카드뉴스</h1>
 
-  <div class="slider-container">
-    <div class="slider" id="slider">
-      <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="1"></a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="2">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(4).png" alt="3">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689737" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(5).png" alt="4">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000672405" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(4).png" alt="5">
-      </a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000597116" target="_blank">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/6(4).png" alt="6">
-      </a>
-        <a href="#"> <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7(3).png" alt="7">
-      </a>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="1" /></a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="2" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/3(4).png" alt="3" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000689737" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/4(5).png" alt="4" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000672405" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/5(4).png" alt="5" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000597116" target="_blank">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/6(4).png" alt="6" />
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/7(3).png" alt="7" /></a>
+      </div>
     </div>
-
-    <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
-
-    <div class="dots" id="dots-container"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    let currentSlide = 0;
-    const slider = document.getElementById('slider');
-    const slides = document.querySelectorAll('#slider a');
-    const totalSlides = slides.length;
-    const dotsContainer = document.getElementById('dots-container');
-
-    function updateSlide() {
-      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-      updateDots();
-    }
-
-    function moveSlide(step) {
-      currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-      updateSlide();
-    }
-
-    function createDots() {
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => {
-          currentSlide = i;
-          updateSlide();
-        });
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = document.querySelectorAll('.dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-    }
-
-    createDots();
-    updateSlide();
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
   </script>
 </body>
 </html>
