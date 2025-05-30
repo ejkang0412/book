@@ -1,0 +1,87 @@
+<section id="thematic-exhibition-slide" style="max-width: 400px; margin: 30px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+  <h2 style="text-align: center; color: #2c3e50;">📚 2025년 프렌즈 3기 도서 전시 및 이벤트 안내</h2>
+
+  <div style="margin-bottom: 20px; font-size: 14px;">
+    <p>안녕하세요! <strong>또치</strong>입니다!🦔</p>
+    <p>2025년 프렌즈 3기가 준비한 특별한 도서 전시 소식을 전해드립니다.<br>
+      전시와 함께 작은 이벤트도 마련되어 있으니 많은 관심과 참여 부탁드려요!</p>
+
+    <h3>📌 전시 안내</h3>
+    <ul>
+      <li><strong>전시 기간:</strong> 2025년 5월 20일(월) ~ 5월 29일(목)</li>
+      <li><strong>전시 장소:</strong> 중앙도서관 1층 로비, 3층 대출실</li>
+      <li>※ 전시 도서는 3층 대출실 신착서가에서 찾아보실 수 있습니다.</li>
+    </ul>
+
+    <h3>🎁 이벤트 안내 🎁</h3>
+    <p>프렌즈가 선정한 도서에 대한 서평 또는 댓글을 남겨 주세요!<br>
+      댓글은 기대평, 감상평 등을 남겨 주시면 됩니다!<br>
+      참여해 주신 분들 중 36명을 선정해 <strong>또치 파우치</strong>를 선물로 드립니다.</p>
+
+    <h4>☞ 참여 방법</h4>
+    <ol>
+      <li>선정한 도서를 검색하여 하단에 위치한 서평 확인 (또는 K-라운지 &gt; Book life &gt; 서평)</li>
+      <li>직접 서평을 작성하거나 프렌즈가 작성한 서평에 댓글 작성</li>
+      <li>제목 또는 글의 맨 앞에 <code>***</code>을 작성해 주셔야 참여 인정됩니다.<br>
+        예) ***정말 흥미로운 책 일 것 같아요!</li>
+    </ol>
+
+    <p>프렌즈가 고민 끝에 고른 <strong>12권의 책</strong>을 통해 여러분의 마음도 따뜻하게 연결되길 바랍니다.<br>
+      많은 관심과 참여 부탁드립니다!</p>
+  </div>
+
+  <!-- 세로형 이미지 슬라이드 -->
+  <div id="slide-container" style="position: relative; width: 100%; padding-top: 177.78%; /* 9:16 비율 맞춤 */
+    overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); background: transparent;">
+    
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758.png" alt="도서 전시 사진 1"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_01.png" alt="도서 전시 사진 2"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_02.png" alt="도서 전시 사진 3"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_03.png" alt="도서 전시 사진 4"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_04.png" alt="도서 전시 사진 5"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_05.png" alt="도서 전시 사진 6"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+    <img class="slide" src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_06.png" alt="도서 전시 사진 7"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: none;" />
+
+    <!-- 좌우 버튼 -->
+    <button id="prevBtn" aria-label="이전 이미지"
+      style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.4); border: none; color: white; font-size: 24px; padding: 8px 12px;
+        cursor: pointer; border-radius: 50%; z-index: 10;">&#10094;</button>
+    <button id="nextBtn" aria-label="다음 이미지"
+      style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.4); border: none; color: white; font-size: 24px; padding: 8px 12px;
+        cursor: pointer; border-radius: 50%; z-index: 10;">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll("#slide-container .slide");
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    if (index >= slides.length) currentIndex = 0;
+    else if (index < 0) currentIndex = slides.length - 1;
+    else currentIndex = index;
+
+    slides.forEach((slide, i) => {
+      slide.style.display = i === currentIndex ? "block" : "none";
+    });
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    showSlide(currentIndex - 1);
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    showSlide(currentIndex + 1);
+  });
+
+  showSlide(currentIndex);
+</script>
