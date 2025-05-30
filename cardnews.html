@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>카드뉴스 월 선택</title>
   <style>
     body {
@@ -23,28 +23,56 @@
     }
 
     .buttons a {
-      padding: 15px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 15px;
       background-color: #444;
       color: #fff;
       border-radius: 12px;
       text-decoration: none;
       font-size: 1.1rem;
       transition: background-color 0.3s;
+      width: 140px; /* 버튼 너비 고정 */
     }
 
     .buttons a:hover {
       background-color: #666;
+    }
+
+    .buttons a .thumb {
+      width: 120px; /* 썸네일 크기 */
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
   <h1>보고 싶은 카드뉴스 월을 선택하세요</h1>
   <div class="buttons">
-    <a href="2024-10.html">2024년 10월</a>
-    <a href="2024-11.html">2024년 11월</a>
-    <a href="2024-12.html">2024년 12월</a>
-    <a href="2025-04.html">2025년 4월</a>
-    <a href="2025-05.html">2025년 5월</a>
+    <a href="2024-10.html">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20241031_083050319.jpg" alt="2024년 10월 카드뉴스" class="thumb" />
+      2024년 10월
+    </a>
+    <a href="2024-11.html">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(5).png" alt="2024년 11월 카드뉴스" class="thumb" />
+      2024년 11월
+    </a>
+    <a href="2024-12.html">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="2024년 12월 카드뉴스" class="thumb" />
+      2024년 12월
+    </a>
+    <a href="2025-04.html">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="2025년 4월 카드뉴스" class="thumb" />
+      2025년 4월
+    </a>
+    <a href="2025-05.html">
+      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="2025년 5월 카드뉴스" class="thumb" />
+      2025년 5월
+    </a>
   </div>
 </body>
 </html>
