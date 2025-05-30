@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>책 성향 테스트</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f6f8fa;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    .question h2 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .options button, .retry-btn {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #e0e7ff;
+      font-size: 1rem;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .options button:hover, .retry-btn:hover {
+      background-color: #c7d2fe;
+    }
+
+    #result {
+      text-align: center;
+      display: none;
+    }
+
+    .book-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .book {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background-color: #fafafa;
+    }
+
+    .book img {
+      width: 80px;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    @media (min-width: 600px) {
+      .book-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .book {
+        flex: 1 1 45%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>나의 책 성향은?</h1>
+    <div id="quiz"></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        text: "하루의 마무리는 어떻게 하시나요?",
+        options: [
+          { text: "감성적인 글을 읽으며 하루를 돌아본다", type: "감성형" },
+          { text: "모르는 분야를 탐구한다", type: "탐험형" },
+          { text: "논리적인 사고를 정리한다", type: "분석형" },
+          { text: "내일의 목표를 설정한다", type: "도전형" }
+        ]
+      },
+      {
+        text: "좋아하는 책 스타일은?",
+        options: [
+          { text: "감정이 풍부한 에세이", type: "감성형" },
+          { text: "여행기나 체험담", type: "탐험형" },
+          { text: "지식 정보 중심의 책", type: "분석형" },
+          { text: "성공 스토리나 자기계발서", type: "도전형" }
+        ]
+      },
+      {
+        text: "주말 계획은?",
+        options: [
+          { text: "편안히 책 읽기", type: "감성형" },
+          { text: "어디론가 훌쩍 떠나기", type: "탐험형" },
+          { text: "다큐 시청과 정리", type: "분석형" },
+          { text: "계획 세우고 도전하기", type: "도전형" }
+        ]
+      },
+      {
+        text: "책을 읽을 때 중요한 건?",
+        options: [
+          { text: "공감과 위로", type: "감성형" },
+          { text: "새로운 시야와 경험", type: "탐험형" },
+          { text: "논리적 이해와 분석", type: "분석형" },
+          { text: "자극과 동기부여", type: "도전형" }
+        ]
+      },
+      {
+        text: "친구들이 나를 설명할 때?",
+        options: [
+          { text: "감수성 풍부", type: "감성형" },
+          { text: "도전 정신 강함", type: "도전형" },
+          { text: "정보에 밝고 지식 많음", type: "분석형" },
+          { text: "새로운 것에 관심 많음", type: "탐험형" }
+        ]
+      },
+      {
+        text: "나에게 독서는?",
+        options: [
+          { text: "나를 위로하는 시간", type: "감성형" },
+          { text: "새로운 세상과의 만남", type: "탐험형" },
+          { text: "세상을 이해하는 방법", type: "분석형" },
+          { text: "더 나아가기 위한 도구", type: "도전형" }
+        ]
+      }
+    ];
+
+    const books = {
+      감성형: [
+        { title: "나는 나로 살기로 했다", image: "https://image.yes24.com/goods/74408174/XL", desc: "자존감 회복을 위한 감성 에세이" },
+        { title: "죽고 싶지만 떡볶이는 먹고 싶어", image: "https://image.yes24.com/goods/63944560/XL", desc: "우울한 날 감정 공감형 도서" },
+        { title: "너의 안부를 묻는 밤", image: "https://image.yes24.com/goods/95780157/XL", desc: "따뜻한 위로가 담긴 글귀 모음" }
+      ],
+      탐험형: [
+        { title: "혼자 떠나는 여행", image: "https://image.yes24.com/goods/99092412/XL", desc: "혼자만의 모험을 떠나고 싶은 이에게" },
+        { title: "세계의 끝과 하드보일드 원더랜드", image: "https://image.yes24.com/goods/3096684/XL", desc: "상상력 넘치는 탐험 이야기" },
+        { title: "인생의 발견", image: "https://image.yes24.com/goods/89352106/XL", desc: "여행으로 삶을 되돌아보는 책" }
+      ],
+      분석형: [
+        { title: "넛지", image: "https://image.yes24.com/goods/86494258/XL", desc: "행동경제학의 대표작" },
+        { title: "총, 균, 쇠", image: "https://image.yes24.com/goods/14593427/XL", desc: "인류의 발전을 과학으로 풀다" },
+        { title: "팩트풀니스", image: "https://image.yes24.com/goods/74051775/XL", desc: "세상을 정확히 이해하기 위한 분석" }
+      ],
+      도전형: [
+        { title: "아침형 인간", image: "https://image.yes24.com/goods/3096607/XL", desc: "성공을 위한 습관 형성" },
+        { title: "배짱으로 부딪혀라", image: "https://image.yes24.com/goods/72019508/XL", desc: "도전 정신을 자극하는 도서" },
+        { title: "그릿", image: "https://image.yes24.com/goods/36401993/XL", desc: "끈기와 열정의 힘" }
+      ]
+    };
+
+    let current = 0;
+    let scores = { 감성형: 0, 탐험형: 0, 분석형: 0, 도전형: 0 };
+
+    function showQuestion() {
+      const quizDiv = document.getElementById('quiz');
+      const q = questions[current];
+      quizDiv.innerHTML = `
+        <div class="question">
+          <h2>Q${current + 1}. ${q.text}</h2>
+          <div class="options">
+            ${q.options.map((opt, i) => `<button onclick="selectAnswer('${opt.type}')">${opt.text}</button>`).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function selectAnswer(type) {
+      scores[type]++;
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz').style.display = 'none';
+      const resultDiv = document.getElementById('result');
+      const maxType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+      const bookList = books[maxType]
+        .map(book => `
+          <div class="book">
+            <img src="${book.image}" alt="${book.title}">
+            <div>
+              <strong>${book.title}</strong><br>
+              <small>${book.desc}</small>
+            </div>
+          </div>
+        `).join('');
+      resultDiv.innerHTML = `
+        <h2>당신은 <strong>${maxType}</strong> 성향입니다!</h2>
+        <div class="book-list">${bookList}</div>
+        <button class="retry-btn" onclick="restartQuiz()">다시 테스트하기</button>
+      `;
+      resultDiv.style.display = 'block';
+    }
+
+    function restartQuiz() {
+      current = 0;
+      scores = { 감성형: 0, 탐험형: 0, 분석형: 0, 도전형: 0 };
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('quiz').style.display = 'block';
+      showQuestion();
+    }
+
+    showQuestion();
+  </script>
+</body>
+
+</html>
