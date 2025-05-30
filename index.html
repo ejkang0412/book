@@ -1,78 +1,131 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>도서관 Friends 활동 아카이빙</title>
+  <meta charset="UTF-8">
+  <title>프렌즈 아카이빙</title>
   <style>
-    body {
+    * {
       margin: 0;
-      background-color: #ffffff; /* 전체 배경 흰색 */
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Noto Sans KR', sans-serif;
-      color: #000; /* 기본 글씨 검정 */
-      text-align: center;
+      background-color: #ffffff;
+      color: #000000;
     }
 
     header {
       background-color: #ffffff;
-      padding: 40px 0;
+      text-align: center;
+      padding: 30px 0;
     }
 
     .logo {
-      width: 300px;  /* 로고 크게 조정 */
+      width: 300px;
       height: auto;
-      display: block;
-      margin: 0 auto;
     }
 
-    .container {
+    nav {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 40px 20px;
+      gap: 60px;
+      padding: 15px 0;
+      background-color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 500;
     }
 
-    .star-card {
-      width: 140px;
-      height: 140px;
-      background-color: #000000; /* 별 카드 색: 검정 */
-      clip-path: polygon(
-        50% 0%,
-        61% 35%,
-        98% 35%,
-        68% 57%,
-        79% 91%,
-        50% 70%,
-        21% 91%,
-        32% 57%,
-        2% 35%,
-        39% 35%
-      );
+    nav a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #888;
+    }
+
+    .hero {
+      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #ffffff; /* 글씨 흰색 */
-      font-size: 0.95rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      text-align: center;
+      color: white;
     }
 
-    .star-card:hover {
-      background-color: #333;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero .btn {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px 30px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #000;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero .btn:hover {
+      background-color: rgba(255, 255, 255, 1);
     }
   </style>
 </head>
 <body>
+
+  <!-- 헤더: 프렌즈 로고 -->
   <header>
-    <img src="logo.png" alt="Friends Logo" class="logo" />
+    <img src="logo.png" alt="프렌즈 로고" class="logo" />
   </header>
 
-  <div class="container">
-    <a href="cardnews.html" class="star-card">카드뉴스</a>
-    <a href="책서림.html" class="star-card">책서림</a>
-    <a href="테마전시.html" class="star-card">테마전시</a>
-  </div>
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="cardnews.html">CardNews</a>
+    <a href="책서림.html">책서림</a>
+    <a href="테마전시.html">테마전시</a>
+    <a href="https://youtube.com" target="_blank">유튜브</a>
+  </nav>
+
+  <!-- 메인 배경 영역 -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>프렌즈 아카이빙</h1>
+      <p>Elit irure mollit dolore amet culpa adipisicing</p>
+      <a href="#about" class="btn">About</a>
+    </div>
+  </section>
+
 </body>
 </html>
