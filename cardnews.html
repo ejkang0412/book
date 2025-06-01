@@ -1,78 +1,148 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>카드뉴스 월 선택</title>
+  <meta charset="UTF-8">
+  <title>카드뉴스 아카이빙</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f8f8f8;
+      background-color: #f4f4f4;
+      color: #000000;
+    }
+
+    header {
+      background-color: #ffffff;
       text-align: center;
-      padding: 80px 20px;
+      padding: 30px 0;
+    }
+
+    .logo {
+      width: 300px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 15px 0;
+      background-color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #888;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
 
     h1 {
-      color: #333;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
     }
 
-    .buttons {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
     }
 
-    .buttons a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px 15px;
-      background-color: #444;
-      color: #fff;
+    .card {
+      background-color: #fff;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.2s, box-shadow 0.3s;
       text-decoration: none;
-      font-size: 1.1rem;
-      transition: background-color 0.3s;
-      width: 140px; /* 버튼 너비 고정 */
+      color: #000;
     }
 
-    .buttons a:hover {
-      background-color: #666;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .buttons a .thumb {
-      width: 120px; /* 썸네일 크기 */
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 8px;
+    .card img {
+      width: 100%;
+      height: 150px;
       object-fit: cover;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>보고 싶은 카드뉴스 월을 선택하세요</h1>
-  <div class="buttons">
-    <a href="2024-10.html">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20241031_083050319.jpg" alt="2024년 10월 카드뉴스" class="thumb" />
-      2024년 10월
-    </a>
-    <a href="2024-11.html">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(5).png" alt="2024년 11월 카드뉴스" class="thumb" />
-      2024년 11월
-    </a>
-    <a href="2024-12.html">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="2024년 12월 카드뉴스" class="thumb" />
-      2024년 12월
-    </a>
-    <a href="2025-04.html">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="2025년 4월 카드뉴스" class="thumb" />
-      2025년 4월
-    </a>
-    <a href="2025-05.html">
-      <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="2025년 5월 카드뉴스" class="thumb" />
-      2025년 5월
-    </a>
+
+  <!-- 로고 -->
+  <header>
+    <img src="logo.png" alt="프렌즈 로고" class="logo" />
+  </header>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="Book Test.html">Book Test</a>
+    <a href="cardnews.html">CardNews</a>
+    <a href="책서림.html">책서림</a>
+    <a href="테마전시.html">테마전시</a>
+    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
+  </nav>
+
+  <!-- 카드뉴스 본문 -->
+  <div class="container">
+    <h1>카드뉴스 아카이빙</h1>
+    <div class="card-grid">
+      <a class="card" href="2024-10.html">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20241031_083050319.jpg" alt="2024년 10월">
+        <h3>2024년 10월</h3>
+      </a>
+      <a class="card" href="2024-11.html">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(5).png" alt="2024년 11월">
+        <h3>2024년 11월</h3>
+      </a>
+      <a class="card" href="2024-12.html">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="2024년 12월">
+        <h3>2024년 12월</h3>
+      </a>
+      <a class="card" href="2025-04.html">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="2025년 4월">
+        <h3>2025년 4월</h3>
+      </a>
+      <a class="card" href="2025-05.html">
+        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="2025년 5월">
+        <h3>2025년 5월</h3>
+      </a>
+    </div>
   </div>
+
 </body>
 </html>
