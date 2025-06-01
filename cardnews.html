@@ -47,16 +47,27 @@
       color: #888;
     }
 
-    /* ✅ 배경 이미지가 있는 카드뉴스 섹션 */
+    /* ✅ 배경 이미지 + 어두운 오버레이 */
     .background-section {
-      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFOxford%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
-      padding: 80px 20px;
       position: relative;
+      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFOxford%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
       min-height: 100vh;
+      padding: 80px 20px;
+      z-index: 1;
+    }
+
+    .background-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+      z-index: 0;
     }
 
     .overlay {
-      background-color: rgba(255, 255, 255, 0.85);
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.9);
       padding: 50px 30px;
       border-radius: 16px;
       max-width: 1200px;
@@ -130,7 +141,7 @@
     <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
   </nav>
 
-  <!-- 배경 이미지 + 카드뉴스 섹션 -->
+  <!-- 배경 이미지 + 어두운 오버레이 + 카드뉴스 섹션 -->
   <section class="background-section">
     <div class="overlay">
       <h1>카드뉴스 아카이빙</h1>
