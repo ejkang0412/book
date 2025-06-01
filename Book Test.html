@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Book Test</title>
   <style>
     * {
@@ -47,78 +47,104 @@
       color: #888;
     }
 
+    .hero {
+      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 120px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
     .container {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
       max-width: 700px;
-      margin: 50px auto;
-      padding: 20px;
+      width: 90%;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
+      font-size: 2rem;
       margin-bottom: 20px;
     }
 
     .question {
       font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      margin-bottom: 20px;
+      font-weight: 500;
     }
 
     .options button {
-      padding: 10px 20px;
+      margin: 8px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      background-color: #333;
+      color: white;
       font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f7f7f7;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     .options button:hover {
-      background-color: #eaeaea;
+      background-color: #555;
     }
 
     .result {
-      font-size: 1.2rem;
-      margin-top: 30px;
-    }
-
-    .book-recommendation {
+      font-size: 1.1rem;
+      font-weight: bold;
       margin-top: 20px;
     }
 
     .book-recommendation img {
-      max-width: 100px;
+      width: 120px;
       margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* 다시 테스트하기 버튼 스타일 */
     #restartBtn {
+      display: none;
       margin-top: 30px;
-      padding: 10px 30px;
+      padding: 10px 20px;
       font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f7f7f7;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      display: none; /* 처음엔 숨김 */
     }
 
     #restartBtn:hover {
-      background-color: #eaeaea;
+      background-color: #666;
     }
   </style>
 </head>
 <body>
-  <header>
+
+<header>
+  <a href="index.html">
     <img src="logo.png" alt="프렌즈 로고" class="logo" />
-  </header>
+  </a>
+</header>
+
 
   <nav>
     <a href="Book Test.html">Book Test</a>
@@ -128,16 +154,18 @@
     <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
   </nav>
 
-  <div class="container">
-    <h1>나에게 어울리는 책은?</h1>
-    <div id="quiz">
-      <div class="question" id="question">질문이 여기에 표시됩니다</div>
-      <div class="options" id="options"></div>
+  <section class="hero">
+    <div class="container">
+      <h1>나에게 어울리는 책은?</h1>
+      <div id="quiz">
+        <div class="question" id="question">질문이 여기에 표시됩니다</div>
+        <div class="options" id="options"></div>
+      </div>
+      <div class="result" id="result"></div>
+      <div class="book-recommendation" id="bookRecommendation"></div>
+      <button id="restartBtn">다시 테스트하기</button>
     </div>
-    <div class="result" id="result"></div>
-    <div class="book-recommendation" id="bookRecommendation"></div>
-    <button id="restartBtn">다시 테스트하기</button>
-  </div>
+  </section>
 
   <script>
     const questions = [
@@ -177,13 +205,11 @@
     const restartBtn = document.getElementById("restartBtn");
 
     function showQuestion() {
-      // 질문과 옵션 초기화
       const q = questions[currentQuestion];
       questionEl.textContent = q.question;
       optionsEl.innerHTML = "";
       resultEl.textContent = "";
       bookRecEl.innerHTML = "";
-
       restartBtn.style.display = "none";
 
       q.options.forEach(option => {
@@ -211,9 +237,18 @@
       };
 
       const bookImages = {
-        감성: ["book1.jpg", "book2.jpg"],
-        실용: ["book3.jpg", "book4.jpg"],
-        철학: ["book5.jpg", "book6.jpg"]
+        감성: [
+          "https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788937434488.jpg",
+          "https://contents.kyobobook.co.kr/dtl/Klover/mok/0a96a4de-c4fc-4e32-853e-24be3dd65a53-20241108-233810.jpg"
+        ],
+        실용: [
+          "https://image.yes24.com/Goods/9349031/XL",
+          "https://image.yes24.com/goods/69724044/XL"
+        ],
+        철학: [
+          "https://image.yes24.com/Goods/101317041/X",
+          "https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788932022888.jpg"
+        ]
       };
 
       questionEl.textContent = "테스트가 완료되었습니다.";
