@@ -4,22 +4,89 @@
   <meta charset="UTF-8" />
   <title>테마전시 모음집</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      background-color: #f8f8f8;
       color: #333;
+      background-color: #f4f4f4;
     }
+
+    header {
+      background-color: #fff;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .logo {
+      width: 300px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 15px 0;
+      background-color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #888;
+    }
+
+    .background-section {
+      position: relative;
+      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
+      min-height: 100vh;
+      padding: 80px 20px;
+    }
+
+    .background-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 50px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      font-size: 2.2rem;
     }
+
     ul {
       list-style: none;
       padding-left: 0;
     }
+
     li {
       background: white;
       margin-bottom: 15px;
@@ -29,22 +96,58 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     li:hover {
       background-color: #eaeaea;
     }
+
     a {
       text-decoration: none;
       color: #333;
       display: block;
     }
+
+    @media screen and (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>테마전시 모음집</h1>
-  <ul>
-    <li><a href="테마전시_5월.html">📚 북큐레이션 전시 『프렌즈의 책장 : 마음을 연결하는 책』</a></li>
-    <!-- 추가 테마전시가 있으면 아래에 더 넣기 -->
-    <!-- <li><a href="다른테마전시.html">다른 테마전시 주제</a></li> -->
-  </ul>
+
+  <!-- 로고 -->
+  <header>
+    <a href="index.html">
+      <img src="logo.png" alt="프렌즈 로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="Book Test.html">Book Test</a>
+    <a href="cardnews.html">CardNews</a>
+    <a href="책서림.html">책서림</a>
+    <a href="테마전시.html">테마전시</a>
+    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
+  </nav>
+
+  <!-- 테마전시 내용 배경 + 오버레이 -->
+  <section class="background-section">
+    <div class="overlay">
+      <h1>테마전시 모음집</h1>
+      <ul>
+        <li>
+          <a href="테마전시_5월.html">
+            📚 북큐레이션 전시 『프렌즈의 책장 : 마음을 연결하는 책』
+          </a>
+        </li>
+        <!-- 추가 테마전시 항목은 아래에 계속 추가 -->
+        <!-- <li><a href="다른테마전시.html">다른 테마전시 주제</a></li> -->
+      </ul>
+    </div>
+  </section>
+
 </body>
 </html>
