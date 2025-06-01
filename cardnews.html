@@ -13,11 +13,11 @@
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background-color: #f4f4f4;
-      color: #000000;
+      color: #000;
     }
 
     header {
-      background-color: #ffffff;
+      background-color: #fff;
       text-align: center;
       padding: 30px 0;
     }
@@ -47,13 +47,24 @@
       color: #888;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
+    /* ✅ 배경 이미지가 있는 카드뉴스 섹션 */
+    .background-section {
+      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFOxford%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
+      padding: 80px 20px;
+      position: relative;
+      min-height: 100vh;
     }
 
-    h1 {
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 50px 30px;
+      border-radius: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .overlay h1 {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 40px;
@@ -95,7 +106,7 @@
     }
 
     @media screen and (max-width: 600px) {
-      h1 {
+      .overlay h1 {
         font-size: 2rem;
       }
     }
@@ -104,12 +115,11 @@
 <body>
 
   <!-- 로고 -->
-<header>
-  <a href="index.html">
-    <img src="logo.png" alt="프렌즈 로고" class="logo" />
-  </a>
-</header>
-
+  <header>
+    <a href="index.html">
+      <img src="logo.png" alt="프렌즈 로고" class="logo" />
+    </a>
+  </header>
 
   <!-- 네비게이션 -->
   <nav>
@@ -120,32 +130,34 @@
     <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
   </nav>
 
-  <!-- 카드뉴스 본문 -->
-  <div class="container">
-    <h1>카드뉴스 아카이빙</h1>
-    <div class="card-grid">
-      <a class="card" href="2024-10.html">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20241031_083050319.jpg" alt="2024년 10월">
-        <h3>2024년 10월</h3>
-      </a>
-      <a class="card" href="2024-11.html">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(5).png" alt="2024년 11월">
-        <h3>2024년 11월</h3>
-      </a>
-      <a class="card" href="2024-12.html">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="2024년 12월">
-        <h3>2024년 12월</h3>
-      </a>
-      <a class="card" href="2025-04.html">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="2025년 4월">
-        <h3>2025년 4월</h3>
-      </a>
-      <a class="card" href="2025-05.html">
-        <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="2025년 5월">
-        <h3>2025년 5월</h3>
-      </a>
+  <!-- 배경 이미지 + 카드뉴스 섹션 -->
+  <section class="background-section">
+    <div class="overlay">
+      <h1>카드뉴스 아카이빙</h1>
+      <div class="card-grid">
+        <a class="card" href="2024-10.html">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20241031_083050319.jpg" alt="2024년 10월">
+          <h3>2024년 10월</h3>
+        </a>
+        <a class="card" href="2024-11.html">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(5).png" alt="2024년 11월">
+          <h3>2024년 11월</h3>
+        </a>
+        <a class="card" href="2024-12.html">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="2024년 12월">
+          <h3>2024년 12월</h3>
+        </a>
+        <a class="card" href="2025-04.html">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1-1.png" alt="2025년 4월">
+          <h3>2025년 4월</h3>
+        </a>
+        <a class="card" href="2025-05.html">
+          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/001(14).png" alt="2025년 5월">
+          <h3>2025년 5월</h3>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
 </body>
 </html>
