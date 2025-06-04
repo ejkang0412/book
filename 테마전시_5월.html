@@ -5,44 +5,46 @@
   <title>2025년 5월 도서 전시</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
+    * {
       margin: 0;
-      padding: 0; /* 패딩 제거 */
+      padding: 0;
+      box-sizing: border-box;
     }
-    /* 고정 상단바 */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
     header {
+      background-color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #fff;
-      z-index: 10;
-      padding: 15px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      z-index: 20;
     }
-    header .logo {
-      width: 120px;
+    .logo {
+      width: 140px;
       height: auto;
+      cursor: pointer;
     }
     nav {
       position: fixed;
-      top: 60px; /* header 높이 */
+      top: 70px; /* header 높이 + margin */
       left: 0;
       width: 100%;
       background-color: #fff;
-      z-index: 10;
       display: flex;
       justify-content: center;
       gap: 40px;
-      padding: 10px 0;
+      padding: 12px 0;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 20;
+      font-weight: 600;
       font-size: 1rem;
-      font-weight: 500;
     }
     nav a {
       text-decoration: none;
@@ -53,60 +55,78 @@
       color: #0077cc;
     }
 
-    /* 배경섹션: 도서관 사진 배경 + 오버레이 */
+    /* 메인 배경 섹션 */
     .background-section {
       position: relative;
-      padding-top: 110px; /* header(60) + nav(50) 합 */
+      padding-top: 120px; /* header + nav 공간 확보 */
       min-height: 100vh;
-      background-image: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800'); /* 도서관 사진 URL 넣기 */
+      background-image: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       color: #fff;
-      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-bottom: 60px;
     }
     /* 어두운 오버레이 */
     .background-section::before {
       content: "";
       position: absolute;
-      top: 110px; /* padding-top과 동일하게 맞춤 */
+      top: 120px; /* padding-top 과 동일 */
       left: 0;
       width: 100%;
-      height: calc(100% - 110px);
+      height: calc(100% - 120px);
       background-color: rgba(0, 0, 0, 0.5);
-      z-index: -1;
+      z-index: 1;
       pointer-events: none;
     }
 
-    h1 {
+    .content-container {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 720px;
+      width: 90%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      margin-top: 40px;
       text-align: center;
-      margin-bottom: 30px;
-      font-weight: 700;
-      font-size: 2rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.7);
     }
 
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* Swiper 스타일 */
     .swiper {
-      width: 90%;
-      max-width: 700px;
-      margin: auto;
+      width: 100%;
+      height: auto;
     }
     .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgba(255,255,255,0.9);
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      overflow: hidden;
     }
     .swiper-slide img {
       width: 100%;
       height: auto;
-      border-radius: 10px;
+      border-radius: 12px;
+      object-fit: contain;
     }
     .swiper-button-next,
     .swiper-button-prev {
-      color: #fff;
+      color: #0077cc;
+      top: 45%;
     }
     .swiper-pagination-bullet {
       background: #bbb;
@@ -115,52 +135,73 @@
     .swiper-pagination-bullet-active {
       background: #0077cc;
     }
+
+    /* 반응형 */
+    @media (max-width: 480px) {
+      nav {
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+      .logo {
+        width: 110px;
+      }
+      .content-container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <a href="index.html">
       <img src="logo.png" alt="프렌즈 로고" class="logo" />
     </a>
   </header>
+
   <nav>
     <a href="Book Test.html">Book Test</a>
     <a href="cardnews.html">CardNews</a>
     <a href="책서림.html">책서림</a>
     <a href="테마전시.html">테마전시</a>
-    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
+    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank" rel="noopener noreferrer">유튜브</a>
   </nav>
 
   <section class="background-section">
-    <h1>2025년 5월 도서 전시 사진</h1>
+    <div class="content-container">
+      <h1>2025년 5월 도서 전시 사진</h1>
 
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758.png" alt="도서 전시 사진 1" />
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758.png" alt="도서 전시 사진 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_01.png" alt="도서 전시 사진 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_02.png" alt="도서 전시 사진 3" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_03.png" alt="도서 전시 사진 4" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_04.png" alt="도서 전시 사진 5" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_05.png" alt="도서 전시 사진 6" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_06.png" alt="도서 전시 사진 7" />
+          </div>
         </div>
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_01.png" alt="도서 전시 사진 2" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_02.png" alt="도서 전시 사진 3" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_03.png" alt="도서 전시 사진 4" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_04.png" alt="도서 전시 사진 5" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_05.png" alt="도서 전시 사진 6" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/KakaoTalk_20250526_153812758_06.png" alt="도서 전시 사진 7" />
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
   </section>
 
