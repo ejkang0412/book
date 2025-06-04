@@ -145,134 +145,155 @@
   </a>
 </header>
 
+<nav>
+  <a href="Book Test.html">Book Test</a>
+  <a href="cardnews.html">CardNews</a>
+  <a href="책서림.html">책서림</a>
+  <a href="테마전시.html">테마전시</a>
+  <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
+</nav>
 
-  <nav>
-    <a href="Book Test.html">Book Test</a>
-    <a href="cardnews.html">CardNews</a>
-    <a href="책서림.html">책서림</a>
-    <a href="테마전시.html">테마전시</a>
-    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
-  </nav>
-
-  <section class="hero">
-    <div class="container">
-      <h1>나에게 어울리는 책은?</h1>
-      <div id="quiz">
-        <div class="question" id="question">질문이 여기에 표시됩니다</div>
-        <div class="options" id="options"></div>
-      </div>
-      <div class="result" id="result"></div>
-      <div class="book-recommendation" id="bookRecommendation"></div>
-      <button id="restartBtn">다시 테스트하기</button>
+<section class="hero">
+  <div class="container">
+    <h1>나에게 어울리는 책은?</h1>
+    <div id="quiz">
+      <div class="question" id="question">질문이 여기에 표시됩니다</div>
+      <div class="options" id="options"></div>
     </div>
-  </section>
+    <div class="result" id="result"></div>
+    <div class="book-recommendation" id="bookRecommendation"></div>
+    <button id="restartBtn">다시 테스트하기</button>
+  </div>
+</section>
 
-  <script>
-    const questions = [
-      {
-        question: "어떤 시간을 가장 좋아하나요?",
-        options: [
-          { text: "고요한 아침", value: "감성" },
-          { text: "활기찬 낮", value: "실용" },
-          { text: "생각이 깊어지는 밤", value: "철학" }
-        ]
-      },
-      {
-        question: "책을 고를 때 가장 중요하게 여기는 것은?",
-        options: [
-          { text: "감정을 자극하는 이야기", value: "감성" },
-          { text: "생활에 도움되는 팁", value: "실용" },
-          { text: "사고의 깊이", value: "철학" }
-        ]
-      },
-      {
-        question: "어떤 장소에서 책을 읽고 싶나요?",
-        options: [
-          { text: "따뜻한 조명의 카페", value: "감성" },
-          { text: "목표가 뚜렷한 공부방", value: "실용" },
-          { text: "조용한 도서관 구석", value: "철학" }
-        ]
-      }
-    ];
-
-    let currentQuestion = 0;
-    let scores = { 감성: 0, 실용: 0, 철학: 0 };
-
-    const questionEl = document.getElementById("question");
-    const optionsEl = document.getElementById("options");
-    const resultEl = document.getElementById("result");
-    const bookRecEl = document.getElementById("bookRecommendation");
-    const restartBtn = document.getElementById("restartBtn");
-
-    function showQuestion() {
-      const q = questions[currentQuestion];
-      questionEl.textContent = q.question;
-      optionsEl.innerHTML = "";
-      resultEl.textContent = "";
-      bookRecEl.innerHTML = "";
-      restartBtn.style.display = "none";
-
-      q.options.forEach(option => {
-        const btn = document.createElement("button");
-        btn.textContent = option.text;
-        btn.onclick = () => {
-          scores[option.value]++;
-          currentQuestion++;
-          if (currentQuestion < questions.length) {
-            showQuestion();
-          } else {
-            showResult();
-          }
-        };
-        optionsEl.appendChild(btn);
-      });
+<script>
+  const questions = [
+    {
+      question: "어떤 시간을 가장 좋아하나요?",
+      options: [
+        { text: "고요한 아침", value: "감성" },
+        { text: "활기찬 낮", value: "실용" },
+        { text: "생각이 깊어지는 밤", value: "철학" }
+      ]
+    },
+    {
+      question: "책을 고를 때 가장 중요하게 여기는 것은?",
+      options: [
+        { text: "감정을 자극하는 이야기", value: "감성" },
+        { text: "생활에 도움되는 팁", value: "실용" },
+        { text: "사고의 깊이", value: "철학" }
+      ]
+    },
+    {
+      question: "어떤 장소에서 책을 읽고 싶나요?",
+      options: [
+        { text: "따뜻한 조명의 카페", value: "감성" },
+        { text: "목표가 뚜렷한 공부방", value: "실용" },
+        { text: "조용한 도서관 구석", value: "철학" }
+      ]
     }
+  ];
 
-    function showResult() {
-      const resultKey = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-      const resultText = {
-        감성: "감성을 자극하는 문학 작품이 어울려요!",
-        실용: "생활에 도움이 되는 실용서를 추천해요!",
-        철학: "깊이 있는 사고를 위한 철학서가 어울려요!"
+  let currentQuestion = 0;
+  let scores = { 감성: 0, 실용: 0, 철학: 0 };
+
+  const questionEl = document.getElementById("question");
+  const optionsEl = document.getElementById("options");
+  const resultEl = document.getElementById("result");
+  const bookRecEl = document.getElementById("bookRecommendation");
+  const restartBtn = document.getElementById("restartBtn");
+
+  function showQuestion() {
+    const q = questions[currentQuestion];
+    questionEl.textContent = q.question;
+    optionsEl.innerHTML = "";
+    resultEl.textContent = "";
+    bookRecEl.innerHTML = "";
+    restartBtn.style.display = "none";
+
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.textContent = option.text;
+      btn.onclick = () => {
+        scores[option.value]++;
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          showResult();
+        }
       };
+      optionsEl.appendChild(btn);
+    });
+  }
 
-      const bookImages = {
-        감성: [
-          "https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788937434488.jpg",
-          "https://contents.kyobobook.co.kr/dtl/Klover/mok/0a96a4de-c4fc-4e32-853e-24be3dd65a53-20241108-233810.jpg"
-        ],
-        실용: [
-          "https://image.yes24.com/Goods/9349031/XL",
-          "https://image.yes24.com/goods/69724044/XL"
-        ],
-        철학: [
-          "https://image.yes24.com/Goods/101317041/X",
-          "https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788932022888.jpg"
-        ]
-      };
-
-      questionEl.textContent = "테스트가 완료되었습니다.";
-      optionsEl.innerHTML = "";
-      resultEl.textContent = resultText[resultKey];
-
-      bookRecEl.innerHTML = "<h3>추천 도서</h3>";
-      bookImages[resultKey].forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = "추천 도서";
-        bookRecEl.appendChild(img);
-      });
-
-      restartBtn.style.display = "inline-block";
-    }
-
-    restartBtn.onclick = () => {
-      currentQuestion = 0;
-      scores = { 감성: 0, 실용: 0, 철학: 0 };
-      showQuestion();
+  function showResult() {
+    const resultKey = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    const resultText = {
+      감성: "감성을 자극하는 문학 작품이 어울려요!",
+      실용: "생활에 도움이 되는 실용서를 추천해요!",
+      철학: "깊이 있는 사고를 위한 철학서가 어울려요!"
     };
 
+    const bookImages = {
+      감성: [
+        "https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788937434488.jpg",
+        "https://contents.kyobobook.co.kr/dtl/Klover/mok/0a96a4de-c4fc-4e32-853e-24be3dd65a53-20241108-233810.jpg"
+      ],
+      실용: [
+        "https://image.yes24.com/Goods/9349031/XL",
+        "https://image.yes24.com/goods/69724044/XL"
+      ],
+      철학: [
+        "https://image.yes24.com/Goods/101317041/X",
+        "https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788932022888.jpg"
+      ]
+    };
+
+    const bookLinks = {
+      감성: [
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000702886",  // ← 감성책1 링크
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000705755"   // ← 감성책2 링크
+      ],
+      실용: [
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000539492", // ← 실용책1 링크
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000654354"  // ← 실용책2 링크
+      ],
+      철학: [
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000677098", // ← 철학책1 링크
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000496968"  // ← 철학책2 링크
+      ]
+    };
+
+    questionEl.textContent = "테스트가 완료되었습니다.";
+    optionsEl.innerHTML = "";
+    resultEl.textContent = resultText[resultKey];
+
+    bookRecEl.innerHTML = "<h3>추천 도서</h3>";
+    bookImages[resultKey].forEach((src, index) => {
+      const link = document.createElement("a");
+      link.href = bookLinks[resultKey][index];
+      link.target = "_blank";
+
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "추천 도서";
+
+      link.appendChild(img);
+      bookRecEl.appendChild(link);
+    });
+
+    restartBtn.style.display = "inline-block";
+  }
+
+  restartBtn.onclick = () => {
+    currentQuestion = 0;
+    scores = { 감성: 0, 실용: 0, 철학: 0 };
     showQuestion();
-  </script>
+  };
+
+  showQuestion();
+</script>
+
 </body>
 </html>
