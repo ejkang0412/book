@@ -4,8 +4,27 @@
   <meta charset="UTF-8">
   <title>오늘의 추천 도서!</title>
   <style>
-    body { font-family:'Noto Sans KR'; background:#fafafa; margin:0; padding:0; text-align:center; }
-    .book-rec { margin-top:80px; padding:40px 20px; background:#fff; max-width:500px; margin:auto; border-radius:24px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family:'Noto Sans KR', sans-serif; background:#fafafa; color:#000; text-align:center; }
+    header { background-color: #ffffff; text-align: center; padding: 30px 0; }
+    .logo { width: 300px; height: auto; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 15px 0;
+      background-color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    nav a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: #888; }
+
+    .book-rec { margin-top:60px; padding:40px 20px; background:#fff; max-width:500px; margin-left:auto; margin-right:auto; border-radius:24px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
     .book-rec img { width:180px; margin-bottom:16px; border-radius:8px; }
     .book-title { font-size:2rem; font-weight:bold; margin-bottom:10px; }
     .book-author { color:#888; margin-bottom:20px; }
@@ -19,6 +38,23 @@
   </style>
 </head>
 <body>
+  <!-- 헤더: 프렌즈 로고(홈 이동) -->
+  <header>
+    <a href="index.html">
+      <img src="logo.png" alt="프렌즈 로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="Book Test.html">Book Test</a>
+    <a href="cardnews.html">CardNews</a>
+    <a href="책서림.html">책서림</a>
+    <a href="테마전시.html">테마전시</a>
+    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank">유튜브</a>
+  </nav>
+
+  <!-- 추천 도서 영역 -->
   <div class="book-rec" id="rec-box">
     <img id="book-img" src="" alt="추천 도서 표지">
     <div class="book-title" id="book-title"></div>
@@ -34,7 +70,7 @@
       {
         title: "혼자가 혼자에게",
         author: "이병률",
-        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3249028%2F32490282198.20230418163919.jpg&type=w216", // 실제 커버 URL 교체 필요
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3249028%2F32490282198.20230418163919.jpg&type=w216",
         desc: "혼자의 시간을 담백하게 이야기하며, 혼자여도 괜찮음을 위로하는 산문집입니다.",
         fortunes: [
           "오늘은 나 자신에게 잠시 귀 기울여보세요. 혼자 있는 순간이 가장 진짜 나를 만나는 시간이 될 거예요.",
@@ -44,7 +80,7 @@
       {
         title: "여름과 루비",
         author: "박연준",
-        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3327549%2F33275497621.20240807170410.jpg&type=w216", // 실제 커버 URL 교체 필요
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3327549%2F33275497621.20240807170410.jpg&type=w216",
         desc: "유년의 상처와 우정을 감각적인 문장으로 그려낸 박연준 시인의 장편소설입니다.",
         fortunes: [
           "오늘은 작은 우정 하나가 당신의 하루를 반짝이게 할지도 몰라요.",
@@ -54,7 +90,7 @@
       {
         title: "다정한 것이 살아남는다",
         author: "브라이언 헤어 · 버네사 우즈",
-        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244094%2F32440942685.20230912083813.jpg&type=w276", // 실제 커버 URL 교체 필요
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244094%2F32440942685.20230912083813.jpg&type=w276",
         desc: "인간 진화의 힘은 경쟁이 아닌 ‘다정함’에 있다고 과학적으로 설명하는 책입니다.",
         fortunes: [
           "오늘은 누군가에게 따뜻한 말을 건네보세요. 다정함이 작은 변화를 만듭니다.",
@@ -64,7 +100,7 @@
       {
         title: "살육에 이르는 병",
         author: "아비코 다케마루",
-        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3249072%2F32490729801.20250307093702.jpg&type=w216", // 실제 커버 URL 교체 필요
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3249072%2F32490729801.20250307093702.jpg&type=w216",
         desc: "강력한 반전과 심리 트릭으로 반전의 쾌감을 선사하는 대표 미스터리 걸작입니다.",
         fortunes: [
           "오늘은 평소와 다른 시선으로 상황을 보면, 숨겨진 퍼즐 조각이 보일지도 몰라요.",
