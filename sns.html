@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>프렌즈 아카이빙 - SNS 링크</title>
+
   <!-- Font Awesome 아이콘 사용 -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Noto Serif KR 폰트 추가 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -13,8 +18,8 @@
     }
 
     body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f4f6f9;
+      font-family: 'Noto Serif KR', serif;
+      background-color: #faf3e0;
       color: #333;
       text-align: center;
     }
@@ -60,7 +65,7 @@
     .sns-links h2 {
       font-size: 2.4rem;
       margin-bottom: 40px;
-      color: #444;
+      color: #4a3c31;
     }
 
     .sns-links .sns-btn {
@@ -74,7 +79,7 @@
       font-size: 1.3rem;
       font-weight: 600;
       color: #fff;
-      border-radius: 60px; /* 더 둥글게 */
+      border-radius: 60px;
       text-decoration: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
@@ -164,16 +169,16 @@
   <!-- SNS 링크 영역 -->
   <div class="sns-links">
     <h2>📱 SNS 링크 모음</h2>
-    <a href="https://blog.naver.com/kgulib">
+    <a href="https://blog.naver.com/kgulib" target="_blank" class="sns-btn blog">
       <i class="fas fa-blog"></i> 블로그
     </a>
-    <a href="https://www.instagram.com/kgulib/">
+    <a href="https://www.instagram.com/kgulib/" target="_blank" class="sns-btn instagram">
       <i class="fab fa-instagram"></i> 인스타그램
     </a>
-    <a href="https://www.youtube.com/@kgulibrary8781">
+    <a href="https://www.youtube.com/@kgulibrary8781" target="_blank" class="sns-btn youtube">
       <i class="fab fa-youtube"></i> 유튜브
     </a>
-    <a href="https://www.facebook.com/kgulibrary/?locale=ko_KR">
+    <a href="https://www.facebook.com/kgulibrary/?locale=ko_KR" target="_blank" class="sns-btn facebook">
       <i class="fab fa-facebook-f"></i> 페이스북
     </a>
   </div>
