@@ -4,80 +4,18 @@
   <meta charset="UTF-8">
   <title>오늘의 추천 도서!</title>
   <style>
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #fafafa;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    .book-rec {
-      margin-top: 80px;
-      padding: 40px 20px;
-      background: #fff;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 24px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .book-rec img {
-      width: 180px;
-      margin-bottom: 16px;
-      border-radius: 8px;
-    }
-    .book-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .book-author {
-      color: #888;
-      margin-bottom: 20px;
-    }
-    .book-desc {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-    .fortune {
-      margin: 20px 0 18px 0;
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #5374ff;
-    }
-    .back-btn {
-      display: inline-block;
-      margin-top: 10px;
-      background: #ffe066;
-      color: #222;
-      font-weight: bold;
-      border: none;
-      padding: 10px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .back-btn:hover {
-      background: #ffd700;
-    }
-    .retry-btn {
-      display: inline-block;
-      margin-left: 10px;
-      margin-top: 10px;
-      background: #e0e7ff;
-      color: #323e8c;
-      font-weight: bold;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-    .retry-btn:hover {
-      background: #b3bcf7;
-    }
+    body { font-family:'Noto Sans KR'; background:#fafafa; margin:0; padding:0; text-align:center; }
+    .book-rec { margin-top:80px; padding:40px 20px; background:#fff; max-width:500px; margin:auto; border-radius:24px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+    .book-rec img { width:180px; margin-bottom:16px; border-radius:8px; }
+    .book-title { font-size:2rem; font-weight:bold; margin-bottom:10px; }
+    .book-author { color:#888; margin-bottom:20px; }
+    .book-desc { font-size:1.1rem; line-height:1.6; margin-bottom:30px; }
+    .fortune { margin:20px 0 18px; font-size:1.2rem; font-weight:500; color:#5374ff; }
+    .btn { margin:8px 5px; padding:10px 24px; border:none; border-radius:8px; font-weight:bold; text-decoration:none; cursor:pointer; }
+    .back-btn { background:#ffe066; color:#222; }
+    .back-btn:hover { background:#ffd700; }
+    .retry-btn { background:#e0e7ff; color:#323e8c; }
+    .retry-btn:hover { background:#b3bcf7; }
   </style>
 </head>
 <body>
@@ -87,58 +25,57 @@
     <div class="book-author" id="book-author"></div>
     <div class="book-desc" id="book-desc"></div>
     <div class="fortune" id="fortune-msg"></div>
-    <a href="index.html" class="back-btn">← 메인으로 돌아가기</a>
-    <button class="retry-btn" onclick="showRandomBook()">다시 뽑기</button>
+    <a href="index.html" class="btn back-btn">← 메인으로 돌아가기</a>
+    <button class="btn retry-btn" onclick="showRandomBook()">다시 뽑기</button>
   </div>
+
   <script>
     const books = [
       {
-        title: "오렌지와 빵칼",
-        author: "청예",
-        img: "https://image.aladin.co.kr/product/32456/63/cover500/k262839410_1.jpg",
-        desc: "국내에서든 해외에서든, 우리는 모두 세상에 흔적을 가능한 한 남기지 않고 후세에게 더 나은 상태로 물려줘야 한다. 환경을 지킨다는 것이 거창하게 느껴지지만, 이 책은 일상 속 작은 실천법을 구체적으로 제시해줍니다.",
+        title: "혼자가 혼자에게",
+        author: "이병률",
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3249028%2F32490282198.20230418163919.jpg&type=w216", // 실제 커버 URL 교체 필요
+        desc: "혼자의 시간을 담백하게 이야기하며, 혼자여도 괜찮음을 위로하는 산문집입니다.",
         fortunes: [
-          "오늘은 새로운 시도를 두려워하지 마세요! 이 책이 당신의 하루를 상쾌하게 만들어 줄 거예요 🍊",
-          "마음 한 구석이 따뜻해지는 하루가 될 거예요. 작지만 의미 있는 실천을 해보세요!",
+          "오늘은 나 자신에게 잠시 귀 기울여보세요. 혼자 있는 순간이 가장 진짜 나를 만나는 시간이 될 거예요.",
+          "혼자도 괜찮아요. 오늘 내 안의 작은 평화가 스며들기를 바랍니다."
         ]
       },
       {
-        title: "죽고 싶지만 떡볶이는 먹고 싶어",
-        author: "백세희",
-        img: "https://image.aladin.co.kr/product/18520/52/cover500/k212635893_1.jpg",
-        desc: "우울하지만 소중한 일상에 대한 솔직한 이야기. 자기 자신을 위로하고 싶은 모든 이들에게 추천하는 책.",
+        title: "여름과 루비",
+        author: "박연준",
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3327549%2F33275497621.20240807170410.jpg&type=w216", // 실제 커버 URL 교체 필요
+        desc: "유년의 상처와 우정을 감각적인 문장으로 그려낸 박연준 시인의 장편소설입니다.",
         fortunes: [
-          "힘든 일이 있더라도 오늘은 떡볶이처럼 매콤한 행복이 찾아올 거예요 🌶️",
-          "괜찮아요, 당신의 마음은 소중하니까요. 오늘은 스스로에게 따뜻하게 대해보세요.",
+          "오늘은 작은 우정 하나가 당신의 하루를 반짝이게 할지도 몰라요.",
+          "한순간의 빛나는 추억처럼, 오늘 마음에 오래 남을 시간이 찾아올 거예요."
         ]
       },
       {
-        title: "아몬드",
-        author: "손원평",
-        img: "https://image.aladin.co.kr/product/14403/7/cover500/k332539083_2.jpg",
-        desc: "감정을 느끼지 못하는 소년의 성장 이야기. 세상을 바라보는 새로운 시선을 선물합니다.",
+        title: "다정한 것이 살아남는다",
+        author: "브라이언 헤어 · 버네사 우즈",
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3244094%2F32440942685.20230912083813.jpg&type=w276", // 실제 커버 URL 교체 필요
+        desc: "인간 진화의 힘은 경쟁이 아닌 ‘다정함’에 있다고 과학적으로 설명하는 책입니다.",
         fortunes: [
-          "감정을 들여다보는 하루, 한층 더 깊어진 나를 발견할지도 몰라요 🌰",
-          "오늘은 평소와 다른 시각으로 세상을 바라보면 뜻밖의 기쁨을 만날 수 있을 거예요.",
+          "오늘은 누군가에게 따뜻한 말을 건네보세요. 다정함이 작은 변화를 만듭니다.",
+          "다정함이 곧 힘입니다. 당신의 친절이 오늘 누군가에게 큰 힘이 될 거예요."
         ]
       },
       {
-        title: "나는 나로 살기로 했다",
-        author: "김수현",
-        img: "https://image.aladin.co.kr/product/12654/46/cover500/k472531273_1.jpg",
-        desc: "타인의 시선에서 벗어나 자기 자신을 더 사랑하고 싶은 사람들을 위한 에세이.",
+        title: "살육에 이르는 병",
+        author: "아비코 다케마루",
+        img: "https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3249072%2F32490729801.20250307093702.jpg&type=w216", // 실제 커버 URL 교체 필요
+        desc: "강력한 반전과 심리 트릭으로 반전의 쾌감을 선사하는 대표 미스터리 걸작입니다.",
         fortunes: [
-          "오늘은 나 자신에게 가장 따뜻한 말을 건네주세요. 자기 자신이 주인공인 하루가 될 거예요.",
-          "누구보다 소중한 당신, 오늘은 하고 싶은 대로 살아보세요!",
+          "오늘은 평소와 다른 시선으로 상황을 보면, 숨겨진 퍼즐 조각이 보일지도 몰라요.",
+          "뜻밖의 전환점이 올 수 있습니다. 오늘은 끝까지 집중해보세요."
         ]
-      },
-      // ...원하면 더 추가!
+      }
     ];
 
     function showRandomBook() {
       const book = books[Math.floor(Math.random() * books.length)];
       const fortune = book.fortunes[Math.floor(Math.random() * book.fortunes.length)];
-
       document.getElementById("book-img").src = book.img;
       document.getElementById("book-img").alt = book.title + " 표지";
       document.getElementById("book-title").textContent = "『" + book.title + "』";
@@ -147,7 +84,6 @@
       document.getElementById("fortune-msg").textContent = fortune;
     }
 
-    // 페이지 들어갈 때마다 랜덤 책/운세 뽑기
     showRandomBook();
   </script>
 </body>
