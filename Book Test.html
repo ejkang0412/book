@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Book Test</title>
+
+  <!-- Noto Serif KR 폰트 추가 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -11,8 +15,8 @@
     }
 
     body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #ffffff;
+      font-family: 'Noto Serif KR', serif;
+      background-color: #faf3e0;
       color: #000000;
     }
 
@@ -20,6 +24,7 @@
       background-color: #ffffff;
       text-align: center;
       padding: 30px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
     .logo {
@@ -35,6 +40,7 @@
       background-color: #ffffff;
       font-size: 1.1rem;
       font-weight: 500;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     }
 
     nav a {
@@ -48,40 +54,28 @@
     }
 
     .hero {
-      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
+      background-color: #faf3e0;  /* 크림 베이지 배경 */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 120px;
-      position: relative;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 1;
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
 
     .container {
-      position: relative;
-      z-index: 2;
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: #ffffff;
       padding: 40px;
       border-radius: 15px;
       max-width: 700px;
       width: 90%;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
+      color: #4a3c31;
       margin-bottom: 20px;
     }
 
@@ -111,6 +105,7 @@
       font-size: 1.1rem;
       font-weight: bold;
       margin-top: 20px;
+      color: #4a3c31;
     }
 
     .book-recommendation img {
@@ -251,16 +246,16 @@
 
     const bookLinks = {
       감성: [
-        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000702886",  // ← 감성책1 링크
-        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000705755"   // ← 감성책2 링크
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000702886",
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000705755"
       ],
       실용: [
-        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000539492", // ← 실용책1 링크
-        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000654354"  // ← 실용책2 링크
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000539492",
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000654354"
       ],
       철학: [
-        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000677098", // ← 철학책1 링크
-        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000496968"  // ← 철학책2 링크
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000677098",
+        "https://library.kyonggi.ac.kr/search/detail/CATTOT000000496968"
       ]
     };
 
