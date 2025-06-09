@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>테마전시 모음집</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -11,15 +12,16 @@
     }
 
     body {
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Noto Serif KR', serif;
       color: #333;
-      background-color: #f4f4f4;
+      background-color: #faf3e0;
     }
 
     header {
       background-color: #fff;
       text-align: center;
       padding: 30px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
     .logo {
@@ -35,6 +37,7 @@
       background-color: #ffffff;
       font-size: 1.1rem;
       font-weight: 500;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -52,34 +55,25 @@
 
     .background-section {
       position: relative;
-      background: url('https://mblogthumb-phinf.pstatic.net/MjAyMjA1MTNfNDUg/MDAxNjUyNDM1NDIyMjI1.LjoK_XA0W0KZSBvcMh8vxMlyry1rRKy1iY05u_KaIcAg.7NUhQi0QwXmbQp5k65HhrjdI8279QcSV_nxI4PiJ_-8g.JPEG.kriss07/Duke%EF%BC%BFHumfrey%EF%BC%87s%EF%BC%BFLibrary%EF%BC%BFInterior%EF%BC%BF6%2C%EF%BC%BFBodleian%EF%BC%BFLibrary%2C%EF%BC%BFUK%EF%BC%BF%EF%BC%8D%EF%BC%BFDiliff%EF%BC%8D1.jpg?type=w800') center/cover no-repeat;
       min-height: 100vh;
       padding: 80px 20px;
     }
 
-    .background-section::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
-
     .overlay {
       position: relative;
-      z-index: 1;
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: #fff;
       max-width: 800px;
       margin: 0 auto;
       padding: 50px 30px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 30px;
       font-size: 2.2rem;
+      color: #4a3c31;
     }
 
     ul {
@@ -101,10 +95,11 @@
       background-color: #eaeaea;
     }
 
-    a {
+    li a {
       text-decoration: none;
       color: #333;
       display: block;
+      font-size: 1.1rem;
     }
 
     @media screen and (max-width: 600px) {
@@ -132,7 +127,7 @@
     <a href="sns.html">SNS</a>
   </nav>
 
-  <!-- 테마전시 내용 배경 + 오버레이 -->
+  <!-- 테마전시 내용 -->
   <section class="background-section">
     <div class="overlay">
       <h1>테마전시 모음집</h1>
