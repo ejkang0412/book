@@ -8,20 +8,50 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #ffffff;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      color: #000;
     }
-    a.back {
-      display: block;
-      margin-bottom: 20px;
-      color: #0077cc;
+
+    /* 공통 헤더 + 네비 */
+    header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 30px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      width: 300px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 15px 0;
+      background-color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
       text-decoration: none;
-      font-size: 16px;
+      color: #000;
+      transition: color 0.3s ease;
     }
+
+    nav a:hover {
+      color: #888;
+    }
+
     h1 {
       text-align: center;
       color: #222;
-      margin-bottom: 30px;
+      margin: 30px 0;
     }
+
     .slider-container {
       position: relative;
       width: 90%;
@@ -32,11 +62,13 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       background-color: #fff;
     }
+
     .slider {
       display: flex;
       transition: transform 0.5s ease-in-out;
       width: 100%;
     }
+
     .slider a {
       flex: 0 0 100%;
       display: flex;
@@ -45,6 +77,7 @@
       box-sizing: border-box;
       padding: 10px 0;
     }
+
     .slider img {
       max-width: 100%;
       height: auto;
@@ -52,6 +85,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: block;
     }
+
     .arrow {
       position: absolute;
       top: 50%;
@@ -67,20 +101,25 @@
       z-index: 10;
       transition: background-color 0.3s;
     }
+
     .arrow:hover {
       background-color: rgba(0,0,0,0.7);
     }
+
     .arrow-left {
       left: 15px;
     }
+
     .arrow-right {
       right: 15px;
     }
+
     .dots {
       text-align: center;
       margin-top: 15px;
       user-select: none;
     }
+
     .dot {
       display: inline-block;
       width: 12px;
@@ -91,11 +130,12 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     .dot.active {
       background-color: #0077cc;
     }
 
-    /* 방명록 스타일 추가 */
+    /* 방명록 스타일 */
     .guestbook {
       max-width: 700px;
       margin: 40px auto 60px;
@@ -104,16 +144,19 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
+
     .guestbook h2 {
       text-align: center;
       color: #444;
       margin-bottom: 20px;
     }
+
     #guestbook-form {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
+
     #guestbook-form input,
     #guestbook-form textarea {
       font-size: 16px;
@@ -122,6 +165,7 @@
       border-radius: 6px;
       resize: none;
     }
+
     #guestbook-form button {
       align-self: flex-end;
       padding: 10px 20px;
@@ -133,12 +177,15 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     #guestbook-form button:hover {
       background-color: #005fa3;
     }
+
     #guestbook-entries {
       margin-top: 20px;
     }
+
     .entry {
       background-color: white;
       border-left: 4px solid #0077cc;
@@ -147,6 +194,7 @@
       border-radius: 6px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
+
     .entry strong {
       display: block;
       color: #333;
@@ -155,13 +203,29 @@
   </style>
 </head>
 <body>
-  <a class="back" href="index.html">← 메인으로 돌아가기</a>
+
+  <!-- 공통 헤더 -->
+  <header>
+    <a href="index.html">
+      <img src="logo.png" alt="프렌즈 로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 공통 네비게이션 -->
+  <nav>
+    <a href="Book Test.html">Book Test</a>
+    <a href="cardnews.html">CardNews</a>
+    <a href="책서림.html">책서림</a>
+    <a href="테마전시.html">테마전시</a>
+    <a href="sns.html">SNS</a>
+  </nav>
+
   <h1>2024년 12월 큐레이션 카드뉴스</h1>
 
   <div class="slider-container">
     <div class="slider" id="slider">
       <a href="#"><img src="https://library.kyonggi.ac.kr/upload/userfiles/images/1(7).png" alt="1"></a>
-      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050?mainLink=/search/tot&briefLink=/search/tot/result?st=KWRD_A_q=%EC%9E%AC%EC%99%80+%EB%AC%BC%EA%B1%B0%ED%92%88_A_si=TOTAL" target="_blank">
+      <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000684050" target="_blank">
         <img src="https://library.kyonggi.ac.kr/upload/userfiles/images/2(6).png" alt="2">
       </a>
       <a href="https://library.kyonggi.ac.kr/search/detail/CATTOT000000673846" target="_blank">
@@ -185,7 +249,7 @@
     <div class="dots" id="dots-container"></div>
   </div>
 
-  <!-- 기대작성폼(방명록) -->
+  <!-- 기대평 작성 (방명록) -->
   <div class="guestbook">
     <h2>📚 기대평을 남겨보세요!</h2>
     <form id="guestbook-form" onsubmit="return addEntry(event)">
@@ -235,7 +299,7 @@
     createDots();
     updateSlide();
 
-    // 기대작성폼 (방명록) 기능
+    // 방명록 기능
     function addEntry(event) {
       event.preventDefault();
       const name = document.getElementById('name').value.trim();
