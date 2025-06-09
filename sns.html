@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>프렌즈 아카이빙 - SNS 링크</title>
+  <!-- Font Awesome 아이콘 사용 -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 30px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      width: 300px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 15px 0;
+      background-color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #888;
+    }
+
+    .sns-links {
+      margin-top: 80px;
+      padding: 20px;
+    }
+
+    .sns-links h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #444;
+    }
+
+    .sns-links .sns-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 65px;
+      margin: 12px;
+      padding: 0 20px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      border-radius: 60px; /* 더 둥글게 */
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .sns-links .sns-btn i {
+      margin-right: 12px;
+      font-size: 1.5rem;
+    }
+
+    .sns-links .sns-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .sns-btn.blog {
+      background-color: #2db400;
+    }
+
+    .sns-btn.blog:hover {
+      background-color: #249a00;
+    }
+
+    .sns-btn.instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .sns-btn.instagram:hover {
+      opacity: 0.9;
+    }
+
+    .sns-btn.youtube {
+      background-color: #ff0000;
+    }
+
+    .sns-btn.youtube:hover {
+      background-color: #cc0000;
+    }
+
+    .sns-btn.facebook {
+      background-color: #1877f2;
+    }
+
+    .sns-btn.facebook:hover {
+      background-color: #145dbf;
+    }
+
+    /* 빛나는 효과 */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      }
+      50% {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      }
+      100% {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .sns-links .sns-btn {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header>
+    <a href="index.html">
+      <img src="logo.png" alt="프렌즈 로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <a href="Book Test.html">Book Test</a>
+    <a href="cardnews.html">CardNews</a>
+    <a href="테마전시.html">테마전시</a>
+    <a href="sns.html">SNS</a> <!-- 현재 페이지 -->
+  </nav>
+
+  <!-- SNS 링크 영역 -->
+  <div class="sns-links">
+    <h2>📱 SNS 링크 모음</h2>
+    <a href="https://your-blog-link.com" target="_blank" class="sns-btn blog">
+      <i class="fas fa-blog"></i> 블로그
+    </a>
+    <a href="https://www.instagram.com/your_instagram" target="_blank" class="sns-btn instagram">
+      <i class="fab fa-instagram"></i> 인스타그램
+    </a>
+    <a href="https://www.youtube.com/@kgulibrary8781/featured" target="_blank" class="sns-btn youtube">
+      <i class="fab fa-youtube"></i> 유튜브
+    </a>
+    <a href="https://www.facebook.com/your_facebook_page" target="_blank" class="sns-btn facebook">
+      <i class="fab fa-facebook-f"></i> 페이스북
+    </a>
+  </div>
+
+</body>
+</html>
